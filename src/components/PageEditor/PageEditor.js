@@ -130,7 +130,7 @@ export const PageEditor = () => {
       {/* Main Content */}
       <main className="flex-1 px-6 overflow-auto">
         <div className="w-full max-w-screen-2xl mx-auto">
-          <div className="fixed left-0 right-0 p-6 bg-white border-b">
+          <div className="fixed left-0 right-0 p-6 bg-white border-b z-[9999]">
             <header className="flex justify-between items-center">
               <h1 className="text-2xl font-bold">Landing Page Maker</h1>
               <div className="flex items-center space-x-2 bg-muted p-1 rounded-md">
