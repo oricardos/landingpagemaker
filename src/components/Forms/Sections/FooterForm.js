@@ -7,7 +7,7 @@ export const FooterForm = ({ form, onChange }) => {
     "email",
     "whatsappLink",
     "instagramLink",
-    "icnoTextColor",
+    "iconTextColor",
   ];
   return (
     <div className="space-y-6">

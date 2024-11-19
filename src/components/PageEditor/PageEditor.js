@@ -54,10 +54,12 @@ export const PageEditor = () => {
   };
 
   const renderSection = (section) => {
+    console.log(section);
     switch (section.name) {
       case "Hero Lead":
         return (
           <HeroLeadSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -67,6 +69,7 @@ export const PageEditor = () => {
       case "hero":
         return (
           <HeroSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -76,6 +79,7 @@ export const PageEditor = () => {
       case "icons":
         return (
           <IconsSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -85,6 +89,7 @@ export const PageEditor = () => {
       case "video":
         return (
           <VideoSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -94,6 +99,7 @@ export const PageEditor = () => {
       case "map":
         return (
           <MapSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -103,6 +109,7 @@ export const PageEditor = () => {
       case "footer":
         return (
           <FooterSection
+            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)

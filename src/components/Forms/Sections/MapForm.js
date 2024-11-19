@@ -1,6 +1,7 @@
 import React from "react";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import FontSelector from "../FontSelector";
+import IconSelector from "../IconSelector";
 
 export const MapForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor"];
