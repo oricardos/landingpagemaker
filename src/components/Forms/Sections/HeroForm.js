@@ -1,43 +1,69 @@
 import React from "react";
-import { Input } from "../Input";
 import { renderFormSections } from "../../../utils/renderFormSections";
+import { CustomContent } from "../CustomContent";
+import FontSelector from "../FontSelector";
 
 export const HeroForm = ({ form, onChange }) => {
-  const sectionConfig = ["sectionBackgroundColor", "overlayImgSrc", "backgroundImgSrc"];
-  const titleConfig = ["titleText", "titleFont", "titleColor"];
-  const subtitleConfig = ["subtitleText", "subtitleFont", "subtitleColor"];
-  const contentConfig = ["contentText", "contentFont", "contentColor"];
+  const sectionConfig = [
+    "sectionBackgroundColor",
+    "overlayImgSrc",
+    "backgroundImgSrc",
+  ];
+  const titleConfig = ["titleText", "titleColor"];
+  const subtitleConfig = ["subtitleText", "subtitleColor"];
+  const contentConfig = ["contentColor"];
   const buttonConfig = [
     "buttonText",
     "buttonColor",
     "buttonTextColor",
     "buttonLink",
   ];
-  
+
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Configuração da Seção</h3>
-        <div className="space-y-4">{renderFormSections(form, sectionConfig, onChange)}</div>
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">
+          Configuração da Seção
+        </h3>
+        <div className="space-y-4 p-2 bg-white rounded">
+          {renderFormSections(form, sectionConfig, onChange)}
+        </div>
       </div>
-      <div className="w-full border-t border-gray-300" />
+
       <div>
-        <h3 className="text-lg font-medium">Título</h3>
-        <div className="space-y-4">{renderFormSections(form, titleConfig, onChange)}</div>
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">Título</h3>
+        <div className="space-y-4 p-2 bg-white rounded">
+          {renderFormSections(form, titleConfig, onChange)}
+          <FontSelector label="Fonte" name="titleFont" onChange={onChange}/>
+        </div>
       </div>
-      <div className="w-full border-t border-gray-300" />
+
       <div>
-        <h3 className="text-lg font-medium">Subtítulo</h3>
-        <div className="space-y-4">{renderFormSections(form, subtitleConfig, onChange)}</div>
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">Subtítulo</h3>
+        <div className="space-y-4 p-2 bg-white rounded">
+          {renderFormSections(form, subtitleConfig, onChange)}
+          <FontSelector label="Fonte" name="subtitleFont" onChange={onChange}/>
+        </div>
       </div>
-      <div className="w-full border-t border-gray-300" />
+
       <div>
-        <h3 className="text-lg font-medium">Conteúdo</h3>
-        <div className="space-y-4">{renderFormSections(form, contentConfig, onChange)}</div>
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">Conteúdo</h3>
+        <div className="space-y-4 p-2 bg-white rounded">
+          <CustomContent
+            name="contentText"
+            value={form.find((field) => field.name === "contentText").value}
+            onChange={onChange}
+          />
+           <FontSelector label="Fonte" name="contentFont" onChange={onChange}/>
+          {renderFormSections(form, contentConfig, onChange)}
+        </div>
       </div>
+
       <div>
-        <h3 className="text-lg font-medium">Botão</h3>
-        <div className="space-y-4">{renderFormSections(form, buttonConfig, onChange)}</div>
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">Botão</h3>
+        <div className="space-y-4 p-2 bg-white rounded">
+          {renderFormSections(form, buttonConfig, onChange)}
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { MapForm } from "../Forms/Sections/MapForm";
 
 const EditForm = ({ sectionData, onChange }) => {
   const handleChange = (e) => {
+    console.log(e)
     const { name, value, files } = e.target;
     let newValue = value;
 

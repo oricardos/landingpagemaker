@@ -136,13 +136,13 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   )}
                 </div>
                 <h1
-                  style={{ color: data.titleColor }}
+                  style={{ color: data.titleColor, fontFamily: data.titleFont }}
                   className="text-pretty text-5xl font-semibold tracking-tight sm:text-7xl"
                 >
                   {data.titleText}
                 </h1>
                 <p
-                  style={{ color: data.subtitleColor }}
+                  style={{ color: data.subtitleColor, fontFamily: data.subtitleFont }}
                   className="mt-8 text-pretty text-lg font-medium sm:text-xl/8"
                 >
                   {data.subtitleText}

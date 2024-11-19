@@ -14,7 +14,6 @@ import { FooterSection } from "../Section/FooterSection";
 import { sectionConfig } from "../../utils/sectionConfig";
 import { VideoSection } from "../Section/VideoSection";
 import { MapSection } from "../Section/MapSection";
-import { InitialComponent } from "landingpagemaker";
 
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
@@ -45,7 +44,6 @@ export const PageEditor = () => {
   };
 
   const handleEditSection = (name, updatedData) => {
-    console.log({ name, updatedData });
     setSections((prevSections) =>
       prevSections.map((section) =>
         section.name === name
@@ -169,7 +167,6 @@ export const PageEditor = () => {
           <div className="w-full flex flex-col lg:flex-row gap-6 pt-24">
             <div className="fixed bottom-0 top-24">
               <div className="space-y-6 flex-col items-start w-full max-w-80 mb-1">
-                <InitialComponent />
                 <TabGroup
                   value={activeTab}
                   onValueChange={setActiveTab}

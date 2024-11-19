@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ql-toolbar {
+  z-index: 10; /* Garante que os menus estejam acima de outros elementos */
+}
+
+.ql-picker {
+  position: relative; /* Evita bugs de menu */
+}
+
+.ql-editor {
+  height: auto!important;
+}
+
+.react-quill-container .ql-toolbar {
+  z-index: 9999;
+}
+
+.react-quill-container .ql-container {
+  min-height: 150px;
+}

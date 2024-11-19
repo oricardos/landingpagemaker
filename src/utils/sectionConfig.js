@@ -1,14 +1,15 @@
 export const sectionConfig = [
   {
     name: "Hero Lead",
+    show: true,
     data: {
       logoSrc: null,
       titleText: "Título",
       subtitleText: "Subtítulo",
       titleColor: "#000",
       subtitleColor: "#000",
-      titleFont: "font-bold text-4xl",
-      subtitleFont: "text-xl",
+      titleFont: "Roboto",
+      subtitleFont: "Poppins",
       formPlaceholderName: "Nome",
       formPlaceholderPhone: "Telefone",
       formPlaceholderEmail: "E-mail",
@@ -68,32 +69,33 @@ export const sectionConfig = [
   },
   {
     name: "hero",
+    show: true,
     data: {
       titleText: "Título",
-      titleFont: "font-bold text-4xl",
+      titleFont: "Roboto",
       titleColor: "text-black",
 
       subtitleText: "Subtítulo",
-      subtitleFont: "text-lg",
-      subtitleColor: "text-gray-700",
+      subtitleFont: "Poppins",
+      subtitleColor: "#000",
 
       contentText:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae enim eget eros gravida tempor. Sed vitae vulputate odio. Quisque malesuada libero in placerat suscipit. Morbi semper mi libero, a ultricies enim pellentesque et. Sed et pulvinar metus. Donec in dignissim eros. Fusce dignissim tellus vitae sapien viverra, eu porttitor tortor dignissim.",
-      contentFont: "text-base",
-      contentColor: "text-gray-600",
+      contentFont: "Poppins",
+      contentColor: "#000",
 
       buttonText: "Clique aqui",
-      buttonColor: "bg-blue-500",
-      buttonTextColor: "text-white",
+      buttonColor: "#3B82F6",
+      buttonTextColor: "#fff",
       buttonLink: "#",
 
       sectionBackgroundColor: "bg-blue-500",
       overlayImgSrc: null,
-      backgroundImgSrc: null,
+      // backgroundImgSrc: null,
     },
     form: [
-      { name: "overlayImgSrc", type: "file", label: "Imagem" },
-      { name: "backgroundImgSrc", type: "file", label: "Imagem de Fundo" },
+      { name: "overlayImgSrc", type: "file", label: "Imagem de destaque" },
+      // { name: "backgroundImgSrc", type: "file", label: "Imagem de Fundo" },
       {
         name: "sectionBackgroundColor",
         type: "color",
@@ -124,6 +126,7 @@ export const sectionConfig = [
   },
   {
     name: "icons",
+    show: true,
     iconColor: "text-gray-900",
     sectionBackgroundColor: "bg-gray-100",
 
@@ -139,6 +142,7 @@ export const sectionConfig = [
   },
   {
     name: "video",
+    show: true,
     data: {
       videoUrl:
         "https://www.youtube.com/watch?v=AkUWHR_OvrY&ab_channel=SentinelieSobral",
@@ -157,23 +161,24 @@ export const sectionConfig = [
   },
   {
     name: "map",
+    show: true,
     data: {
       sectionBackgroundColor: "#f6f6f6",
 
       titleText: "Map Section",
-      titleFont: "",
+      titleFont: "Roboto",
       titleColor: "#000",
 
       contentText: "This is a map section",
-      contentFont: "",
+      contentFont: "Poppins",
       contentColor: "#000",
 
       mapTitleText: "",
-      mapTitleFont: "",
+      mapTitleFont: "Roboto",
       mapTitleColor: "#000",
 
       mapSubTitleText: "",
-      mapSubTitleFont: "",
+      mapSubTitleFont: "Poppins",
       mapSubTitleColor: "#000",
 
       mapEmbedUrl:
@@ -206,6 +211,7 @@ export const sectionConfig = [
   },
   {
     name: "footer",
+    show: true,
     data: {
       logoSrc: null,
       email: "email@email.com",
