@@ -54,7 +54,6 @@ export const PageEditor = () => {
   };
 
   const renderSection = (section) => {
-    console.log(section);
     switch (section.name) {
       case "Hero Lead":
         return (

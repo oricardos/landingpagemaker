@@ -5,10 +5,10 @@ import { HeroForm } from "../Forms/Sections/HeroForm";
 import { VideoForm } from "../Forms/Sections/VideoForm";
 import { FooterForm } from "../Forms/Sections/FooterForm";
 import { MapForm } from "../Forms/Sections/MapForm";
+import { IconsForm } from "../Forms/Sections/IconsForm";
 
 const EditForm = ({ sectionData, onChange }) => {
   const handleChange = (e) => {
-    console.log(e)
     const { name, value, files } = e.target;
     let newValue = value;
 
@@ -25,6 +25,8 @@ const EditForm = ({ sectionData, onChange }) => {
         return <HeroLeadForm form={section.form} onChange={handleChange} />;
       case "hero":
         return <HeroForm form={section.form} onChange={handleChange} />;
+      case "icons":
+        return <IconsForm form={section.form} onChange={handleChange} />;
       case "video":
         return <VideoForm form={section.form} onChange={handleChange} />;
       case "map":

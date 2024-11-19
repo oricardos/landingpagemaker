@@ -1,7 +1,6 @@
 import React from "react";
 
 export const HeroSection = ({ data, onUpdate }) => {
-  console.log(data.contentText);
   return (
     // <section
     //   className={`flex gap-8 items-center justify-center p-8 ${data.sectionBackgroundColor}`}

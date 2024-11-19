@@ -2,8 +2,18 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { heroIcons } from "../../utils/icons";
 
-const HeroIconSelector = () => {
+export const IconSelector = ({label, name, onChange}) => {
   const [selectedIcon, setSelectedIcon] = useState(heroIcons[0]);
+
+  const handleFontChange = (selectedOption) => {
+    setSelectedIcon(selectedOption.value);
+    onChange({
+      target: {
+        name: name,
+        value: selectedOption.value,
+      },
+    });
+  };
 
   const customSingleValue = ({ data }) => (
     <div className="flex items-center space-x-2">
@@ -30,7 +40,7 @@ const HeroIconSelector = () => {
     <div>
       <Select
         options={heroIcons}
-        onChange={(option) => setSelectedIcon(option)}
+        onChange={(option) => handleFontChange(option)}
         components={{
           SingleValue: customSingleValue,
           Option: customOption,
@@ -47,5 +57,3 @@ const HeroIconSelector = () => {
     </div>
   );
 };
-
-export default HeroIconSelector;

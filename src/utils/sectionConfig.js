@@ -1,3 +1,5 @@
+import { icon } from "@fortawesome/fontawesome-svg-core";
+
 export const sectionConfig = [
   {
     name: "Hero Lead",
@@ -127,18 +129,54 @@ export const sectionConfig = [
   {
     name: "icons",
     show: true,
-    iconColor: "text-gray-900",
-    sectionBackgroundColor: "bg-gray-100",
-
     data: {
-      icons: [
-        //   { icon: <Activity />, title: "Activitys" },
-        //   { icon: <Airplay />, title: "Airplay" },
-        //   { icon: <AlertCircle />, title: "AlertCircle" },
-        //   { icon: <AlertOctagon />, title: "AlertOctagon" },
-        //   { icon: <AlertTriangle />, title: "AlertTriangle" },
-      ],
+      titleText: "Título",
+      titleFont: "Roboto",
+      titleColor: "text-black",
+
+      subtitleText: "Subtítulo",
+      subtitleFont: "Poppins",
+      subtitleColor: "#000",
+
+      sectionBackgroundColor: "#fff",
+
+      icon: "",
+      iconBackgroundColor: "#3B82F6",
+      iconColor: "#fff",
+
+      iconTitle: "Icon Title",
+      iconTitleFont: "Roboto",
+      iconTitleColor: "#000",
+
+      iconSubtitle: "Icon Subtitle",
+      iconSubtitleFont: "Poppins",
+      iconSubtitleColor: "#000",
+
+      icons: []
     },
+    form: [
+      {name: "sectionBackgroundColor", type: "color", label: "Cor de Fundo da seção"},
+
+      {name: "titleText", type: "text", label: "Texto"},
+      {name: "titleFont", type: "text", label: "Fonte do Título"},
+      {name: "titleColor", type: "color", label: "Cor do Título"},
+
+      {name: "subtitleText", type: "text", label: "Texto"},
+      {name: "subtitleFont", type: "text", label: "Fonte do Subtítulo"},
+      {name: "subtitleColor", type: "color", label: "Cor do Subtítulo"},
+
+      {name: "icon", type: "text", label: "Ícone"},
+      {name: "iconBackgroundColor", type: "color", label: "Cor de Fundo dos ícones"},
+      {name: "iconColor", type: "color", label: "Cor dos ícones"},
+
+      {name: "iconTitle", type: "text", label: "Título do ícone"},
+      {name: "iconTitleFont", type: "text", label: "Fonte do Título do ícone"},
+      {name: "iconTitleColor", type: "color", label: "Cor do Título do ícone"},
+
+      {name: "iconSubtitle", type: "text", label: "Subtítulo do ícone"},
+      {name: "iconSubtitleFont", type: "text", label: "Fonte do Subtítulo do ícone"},
+      {name: "iconSubtitleColor", type: "color", label: "Cor do Subtítulo do ícone"},
+    ]
   },
   {
     name: "video",
