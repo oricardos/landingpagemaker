@@ -140,43 +140,71 @@ export const sectionConfig = [
 
       sectionBackgroundColor: "#fff",
 
-      icon: "",
-      iconBackgroundColor: "#3B82F6",
-      iconColor: "#fff",
+      icons: [
+        {
+          icon: "",
+          iconBackgroundColor: "#3B82F6",
+          iconColor: "#fff",
 
-      iconTitle: "Icon Title",
-      iconTitleFont: "Roboto",
-      iconTitleColor: "#000",
+          iconTitle: "Icon Title",
+          iconTitleFont: "Roboto",
+          iconTitleColor: "#000",
 
-      iconSubtitle: "Icon Subtitle",
-      iconSubtitleFont: "Poppins",
-      iconSubtitleColor: "#000",
-
-      icons: []
+          iconSubtitle: "Icon Subtitle",
+          iconSubtitleFont: "Poppins",
+          iconSubtitleColor: "#000",
+        },
+      ],
     },
     form: [
-      {name: "sectionBackgroundColor", type: "color", label: "Cor de Fundo da seção"},
+      {
+        name: "sectionBackgroundColor",
+        type: "color",
+        label: "Cor de Fundo da seção",
+      },
 
-      {name: "titleText", type: "text", label: "Texto"},
-      {name: "titleFont", type: "text", label: "Fonte do Título"},
-      {name: "titleColor", type: "color", label: "Cor do Título"},
+      { name: "titleText", type: "text", label: "Texto" },
+      { name: "titleFont", type: "text", label: "Fonte do Título" },
+      { name: "titleColor", type: "color", label: "Cor do Título" },
 
-      {name: "subtitleText", type: "text", label: "Texto"},
-      {name: "subtitleFont", type: "text", label: "Fonte do Subtítulo"},
-      {name: "subtitleColor", type: "color", label: "Cor do Subtítulo"},
+      { name: "subtitleText", type: "text", label: "Texto" },
+      { name: "subtitleFont", type: "text", label: "Fonte do Subtítulo" },
+      { name: "subtitleColor", type: "color", label: "Cor do Subtítulo" },
 
-      {name: "icon", type: "text", label: "Ícone"},
-      {name: "iconBackgroundColor", type: "color", label: "Cor de Fundo dos ícones"},
-      {name: "iconColor", type: "color", label: "Cor dos ícones"},
+      { name: "icons", type: "text", label: "Ícone" },
 
-      {name: "iconTitle", type: "text", label: "Título do ícone"},
-      {name: "iconTitleFont", type: "text", label: "Fonte do Título do ícone"},
-      {name: "iconTitleColor", type: "color", label: "Cor do Título do ícone"},
+      { name: "icon", type: "text", label: "Ícone" },
+      {
+        name: "iconBackgroundColor",
+        type: "color",
+        label: "Cor de Fundo dos ícones",
+      },
+      { name: "iconColor", type: "color", label: "Cor dos ícones" },
 
-      {name: "iconSubtitle", type: "text", label: "Subtítulo do ícone"},
-      {name: "iconSubtitleFont", type: "text", label: "Fonte do Subtítulo do ícone"},
-      {name: "iconSubtitleColor", type: "color", label: "Cor do Subtítulo do ícone"},
-    ]
+      { name: "iconTitle", type: "text", label: "Título do ícone" },
+      {
+        name: "iconTitleFont",
+        type: "text",
+        label: "Fonte do Título do ícone",
+      },
+      {
+        name: "iconTitleColor",
+        type: "color",
+        label: "Cor do Título do ícone",
+      },
+
+      { name: "iconSubtitle", type: "text", label: "Subtítulo do ícone" },
+      {
+        name: "iconSubtitleFont",
+        type: "text",
+        label: "Fonte do Subtítulo do ícone",
+      },
+      {
+        name: "iconSubtitleColor",
+        type: "color",
+        label: "Cor do Subtítulo do ícone",
+      },
+    ],
   },
   {
     name: "video",

@@ -29,6 +29,7 @@ const features = [
 ]
 
 export const IconsSection = ({ data, onUpdate }) => {
+  console.log('trein chato', data)
   return (
     // <section className={`py-8 ${data.sectionBackgroundColor}`}>
     //   <div className="max-w-5xl mx-auto flex justify-around items-center">
@@ -55,7 +56,7 @@ export const IconsSection = ({ data, onUpdate }) => {
       </div>
       <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-          {data.icons.map((feature) => (
+          {/* {data.icons.map((feature) => (
             <div key={feature.name} className="relative pl-16">
               <dt className="text-base/7 font-semibold text-gray-900">
                 <div className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
@@ -65,7 +66,7 @@ export const IconsSection = ({ data, onUpdate }) => {
               </dt>
               <dd className="mt-2 text-base/7 text-gray-600">{feature.description}</dd>
             </div>
-          ))}
+          ))} */}
         </dl>
       </div>
     </div>

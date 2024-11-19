@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import FontSelector from "../FontSelector";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
-import { render } from "@testing-library/react";
 
 export const IconsForm = ({ form, onChange }) => {
   const initialIconConfig = [];
+
+  console.log("form", form);
 
   const teste = {
     icon: "CloudArrowUpIcon",
@@ -18,6 +19,8 @@ export const IconsForm = ({ form, onChange }) => {
   const titleConfig = ["titleText", "titleColor"];
   const subtitleConfig = ["subtitleText", "subtitleColor"];
   const iconsConfig = [
+    "iconTitle",
+    "iconSubtitle",
     "iconBackgroundColor",
     "iconColor",
     "iconTitleFont",
@@ -27,13 +30,12 @@ export const IconsForm = ({ form, onChange }) => {
     "iconSubtitleColor",
   ];
 
-  const tralalalalala = ["icon", "iconTitle", "iconSubtitle"];
+  const [icons, setIcons] = useState([iconsConfig]);
 
-  const [icons, setIcons] = useState([]);
-
-  const addIcon = () => {
-    setIcons([...icons, initialIconConfig]);
-  }
+  const addIcon = (e) => {
+    e.preventDefault();
+    setIcons([...icons, iconsConfig]);
+  };
 
   return (
     <div className="space-y-6 mb-4">
@@ -71,20 +73,32 @@ export const IconsForm = ({ form, onChange }) => {
       </div>
 
       <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">
+        {/* <h3 className="text-md font-medium mb-2 text-[#868F97]">
           Estilização do Ícone
         </h3>
         <div className="space-y-4 p-2 bg-white rounded">
           {renderFormSections(form, iconsConfig, onChange)}
-        </div>
+        </div> */}
+
         <div className="space-y-4 mt-4 p-2 bg-white rounded">
-          {icons.map((icon, index) => (
-            <div>
-              {renderFormSections(icon, tralalalalala, onChange)}
-            </div>
-          ))}
+          {icons.map((icon, index) => {
+            return (
+              <div key={index}>
+                <IconSelector
+                  label="Ícone"
+                  name="icon"
+                  index={index} // Passa o índice do item atual
+                  onChange={onChange} // Função que atualiza o array
+                />
+                {renderFormSections(form, icon, onChange)}
+              </div>
+            );
+          })}
         </div>
-        <button onClick={() => addIcon()} className="mt-2 bg-slate-900 px-4 py-2 text-white rounded">
+        <button
+          onClick={(e) => addIcon(e)}
+          className="mt-2 bg-slate-900 px-4 py-2 text-white rounded"
+        >
           Adicionar ícone
         </button>
       </div>
