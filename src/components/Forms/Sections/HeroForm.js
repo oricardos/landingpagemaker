@@ -3,6 +3,7 @@ import { renderFormSections } from "../../../utils/renderFormSections";
 import { CustomContent } from "../CustomContent";
 import FontSelector from "../FontSelector";
 import { Checkbox } from "../Checkbox";
+import { FormSectionWrapper } from "../FormSectionWrapper";
 
 export const HeroForm = ({ form, onChange }) => {
   const sectionConfig = [
@@ -22,51 +23,35 @@ export const HeroForm = ({ form, onChange }) => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">
-          Configuração da Seção
-        </h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-          {renderFormSections(form, sectionConfig, onChange)}
-        </div>
-      </div>
+      {/* Configuração da Seção */}
+      <FormSectionWrapper title="Configuração da Seção">
+        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
+        {renderFormSections(form, sectionConfig, onChange)}
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Título</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, titleConfig, onChange)}
-          <FontSelector label="Fonte" name="titleFont" onChange={onChange} />
-        </div>
-      </div>
+      <FormSectionWrapper title="Título">
+        {renderFormSections(form, titleConfig, onChange)}
+        <FontSelector label="Fonte" name="titleFont" onChange={onChange} />
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Subtítulo</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, subtitleConfig, onChange)}
-          <FontSelector label="Fonte" name="subtitleFont" onChange={onChange} />
-        </div>
-      </div>
+      <FormSectionWrapper title="Subtítulo">
+        {renderFormSections(form, subtitleConfig, onChange)}
+        <FontSelector label="Fonte" name="subtitleFont" onChange={onChange} />
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Conteúdo</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          <CustomContent
-            name="contentText"
-            value={form.find((field) => field.name === "contentText").value}
-            onChange={onChange}
-          />
-          <FontSelector label="Fonte" name="contentFont" onChange={onChange} />
-          {renderFormSections(form, contentConfig, onChange)}
-        </div>
-      </div>
+      <FormSectionWrapper title="Conteúdo">
+        <CustomContent
+          name="contentText"
+          value={form.find((field) => field.name === "contentText").value}
+          onChange={onChange}
+        />
+        <FontSelector label="Fonte" name="contentFont" onChange={onChange} />
+        {renderFormSections(form, contentConfig, onChange)}
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Botão</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, buttonConfig, onChange)}
-        </div>
-      </div>
+      <FormSectionWrapper title="Botão">
+        {renderFormSections(form, buttonConfig, onChange)}
+      </FormSectionWrapper>
     </div>
   );
 };
