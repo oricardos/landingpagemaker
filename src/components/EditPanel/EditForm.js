@@ -7,7 +7,7 @@ import { FooterForm } from "../Forms/Sections/FooterForm";
 import { MapForm } from "../Forms/Sections/MapForm";
 import { IconsForm } from "../Forms/Sections/IconsForm";
 
-const EditForm = ({ sectionData, onChange, index }) => {
+const EditForm = ({ sectionData, onChange }) => {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     let newValue = value;
@@ -16,8 +16,12 @@ const EditForm = ({ sectionData, onChange, index }) => {
       newValue = URL.createObjectURL(files[0]);
     }
 
-    if (name === 'icon') {
-      console.log('to nessa bosta');
+    if (name === "icon" || name === "iconTitle" || name === "iconSubtitle") {
+      const teste = sectionData.data.icons.map((item) => {
+        return { ...item, [name]: newValue };
+      });
+
+      console.log({ teste });
     }
 
     onChange(name, newValue);

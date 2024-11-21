@@ -205,6 +205,10 @@ export const sectionConfig = [
         type: "color",
         label: "Cor do Subtítulo do ícone",
       },
+      {
+        name: "icons",
+        type: "hidden",
+      },
     ],
   },
   {

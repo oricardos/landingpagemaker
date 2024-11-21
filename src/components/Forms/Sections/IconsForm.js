@@ -4,13 +4,6 @@ import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
 
 export const IconsForm = ({ form, onChange }) => {
-  const teste = {
-    icon: "CloudArrowUpIcon",
-    title: "Push to deploy",
-    subtitle:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, modi asperiores placeat laborum soluta nisi provident, doloremque temporibus, ad eveniet recusandae culpa magni veritatis voluptatem. Saepe debitis animi repellendus commodi.",
-  };
-
   const sectionConfig = ["sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor"];
   const subtitleConfig = ["subtitleText", "subtitleColor"];
