@@ -65,7 +65,7 @@ export const PageEditor = () => {
             }
           />
         );
-      case "hero":
+      case "Hero":
         return (
           <HeroSection
             show={section.show}
@@ -75,7 +75,7 @@ export const PageEditor = () => {
             }
           />
         );
-      case "icons":
+      case "Ícones":
         return (
           <IconsSection
             show={section.show}
@@ -85,7 +85,7 @@ export const PageEditor = () => {
             }
           />
         );
-      case "video":
+      case "Vídeo":
         return (
           <VideoSection
             show={section.show}
@@ -95,7 +95,7 @@ export const PageEditor = () => {
             }
           />
         );
-      case "map":
+      case "Mapa":
         return (
           <MapSection
             show={section.show}

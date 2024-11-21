@@ -70,7 +70,7 @@ export const sectionConfig = [
     ],
   },
   {
-    name: "hero",
+    name: "Hero",
     data: {
       show: true,
       titleText: "Título",
@@ -127,7 +127,7 @@ export const sectionConfig = [
     ],
   },
   {
-    name: "icons",
+    name: "Ícones",
     data: {
       show: true,
       titleText: "Título",
@@ -212,7 +212,7 @@ export const sectionConfig = [
     ],
   },
   {
-    name: "video",
+    name: "Vídeo",
     data: {
       show: true,
       videoUrl:
@@ -231,7 +231,7 @@ export const sectionConfig = [
     ],
   },
   {
-    name: "map",
+    name: "Mapa",
     data: {
       show: true,
       sectionBackgroundColor: "#f6f6f6",
@@ -281,7 +281,7 @@ export const sectionConfig = [
     ],
   },
   {
-    name: "footer",
+    name: "Footer",
     data: {
       show: true,
       logoSrc: null,
