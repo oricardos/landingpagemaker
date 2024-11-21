@@ -196,6 +196,8 @@ export const PageEditor = () => {
                       className="mt-6 space-y-6 transition-all"
                     >
                       <EditPanel
+                        allSections={sections}
+                        setSelectedSection={setSelectedSection}
                         selectedSection={selectedSection}
                         onChange={(field, value) =>
                           handleEditSection(selectedSection.name, {
