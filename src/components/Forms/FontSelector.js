@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import { googleFonts } from "../../utils/googleFonts";
+import { fetchGoogleFonts } from "../../utils/fetchGoogleFonts";
 
 const FontSelector = ({ label, onChange, name }) => {
+  const [fonts, setFonts] = useState([]);
   const [selectedFont, setSelectedFont] = useState("Roboto");
+  const [loading, setLoading] = useState(true);
+  const API_KEY = process.env.REACT_APP_GOOGLE_FONTS_API_KEY;
 
   const handleFontChange = (selectedOption) => {
     setSelectedFont(selectedOption.value);
@@ -14,6 +17,16 @@ const FontSelector = ({ label, onChange, name }) => {
       },
     });
   };
+
+  useEffect(() => {
+    const loadFonts = async () => {
+      const fontsList = await fetchGoogleFonts(API_KEY);
+      setFonts(fontsList);
+      setLoading(false);
+    };
+
+    loadFonts();
+  }, [API_KEY]);
 
   useEffect(() => {
     const link = document.createElement("link");
@@ -29,28 +42,54 @@ const FontSelector = ({ label, onChange, name }) => {
     };
   }, [selectedFont]);
 
+  useEffect(() => {
+    if (fonts.length > 0) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = `https://fonts.googleapis.com/css2?family=${fonts
+        .map((font) => font.value.replace(" ", "+"))
+        .join("&family=")}&display=swap`;
+      document.head.appendChild(link);
+
+      return () => {
+        document.head.removeChild(link);
+      };
+    }
+  }, [fonts]);
+
   const styles = {
     option: (provided, state) => ({
       ...provided,
-      fontFamily: state.data.value, // Aplica a fonte ao nome da opção
+      fontFamily: `"${state.data.label}", sans-serif`, // Aplica a fonte da opção
     }),
     singleValue: (provided, state) => ({
       ...provided,
-      fontFamily: state.data.value, // Aplica a fonte à opção selecionada
+      fontFamily: `"${state.data.label}", sans-serif`, // Aplica a fonte na opção selecionada
     }),
-  }
+  };
 
   return (
     <div>
       <Select
         label={label}
-        options={googleFonts}
+        options={fonts}
         onChange={(option) => handleFontChange(option)}
         defaultValue={{ label: "Roboto", value: "Roboto" }}
         styles={styles}
+        isLoading={loading}
+        components={{LoadingIndicator}}
+        getOptionLabel={(e) => (
+          <div style={{ fontFamily: `"${e.label}", sans-serif`}}>
+            {e.label}
+          </div>
+        )}
       />
     </div>
   );
 };
 
 export default FontSelector;
+
+const LoadingIndicator = () => {
+  return <div>Carregando...</div>;
+};
