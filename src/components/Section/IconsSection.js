@@ -1,6 +1,7 @@
 import React from "react";
 
 export const IconsSection = ({ data, onUpdate }) => {
+  console.log(data)
   return (
     <>
       {data.show && (
@@ -31,10 +32,10 @@ export const IconsSection = ({ data, onUpdate }) => {
               </h2>
               <h3
                 style={{
-                  color: data.subTitleColor,
-                  fontFamily: data.subTitleFont,
+                  color: data.subtitleColor,
+                  fontFamily: data.subtitleFont,
                 }}
-                className="mt-6 text-lg/8 text-gray-600"
+                className="mt-6 text-lg/8"
               >
                 {data.subtitleText}
               </h3>

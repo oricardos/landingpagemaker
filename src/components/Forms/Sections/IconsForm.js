@@ -3,6 +3,7 @@ import FontSelector from "../FontSelector";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
 import { Checkbox } from "../Checkbox";
+import { FormSectionWrapper } from "../FormSectionWrapper";
 
 export const IconsForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor"];
@@ -24,90 +25,73 @@ export const IconsForm = ({ form, onChange }) => {
 
   return (
     <div className="space-y-6 mb-4">
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">
-          Configuração da Seção
-        </h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-          {renderFormSections(form, sectionConfig, onChange)}
-        </div>
-      </div>
+      <FormSectionWrapper title="Configuração da Seção">
+        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
+        {renderFormSections(form, sectionConfig, onChange)}
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Título</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, titleConfig, onChange)}{" "}
-          <FontSelector
-            label="Fonte do Título"
-            onChange={onChange}
-            name="titleFont"
-          />
-        </div>
-      </div>
+      <FormSectionWrapper title="Título">
+        {renderFormSections(form, titleConfig, onChange)}{" "}
+        <FontSelector
+          label="Fonte do Título"
+          onChange={onChange}
+          name="titleFont"
+        />
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">Subtítulo</h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, subtitleConfig, onChange)}
-          <FontSelector
-            label="Fonte do Subtítulo"
-            onChange={onChange}
-            name="subTitleFont"
-          />
-        </div>
-      </div>
+      <FormSectionWrapper title="Subtítulo">
+        {renderFormSections(form, subtitleConfig, onChange)}
+        <FontSelector
+          label="Fonte do Subtítulo"
+          onChange={onChange}
+          name="subTitleFont"
+        />
+      </FormSectionWrapper>
 
-      <div>
-        <h3 className="text-md font-medium mb-2 text-[#868F97]">
-          Configurações Gerais dos ícones
-        </h3>
-        <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, iconsGeneralConfig, onChange)}
-          {renderFormSections(form, iconsTitle, onChange)}
-          <FontSelector
-            label="Fonte do Título"
-            onChange={onChange}
-            name="iconTitleFont"
-          />
-          {renderFormSections(form, iconsSubTitle, onChange)}
-          <FontSelector
-            label="Fonte do Subtítulo"
-            onChange={onChange}
-            name="iconSubtitleFont"
-          />
-        </div>
-      </div>
+      <FormSectionWrapper title="Configurações Gerais dos ícones">
+        {renderFormSections(form, iconsGeneralConfig, onChange)}
+        {renderFormSections(form, iconsTitle, onChange)}
+        <FontSelector
+          label="Fonte do Título"
+          onChange={onChange}
+          name="iconTitleFont"
+        />
+        {renderFormSections(form, iconsSubTitle, onChange)}
+        <FontSelector
+          label="Fonte do Subtítulo"
+          onChange={onChange}
+          name="iconSubtitleFont"
+        />
+      </FormSectionWrapper>
 
-      <div>
-        <div className="space-y-4 mt-4 p-2 bg-white rounded">
-          {icons.map((iconForm, index) => {
-            return (
-              <div key={index}>
-                <div>
-                  <IconSelector
-                    label="Ícone"
-                    name="icon"
-                    index={index}
-                    onChange={onChange}
-                  />
-                  {renderFormSections(form, iconForm, onChange)}
-                </div>
-
-                {icons.length > 1 && (
-                  <hr className="my-8 border-t border-gray-200" />
-                )}
+      <FormSectionWrapper title="Ícones">
+        {icons.map((iconForm, index) => {
+          return (
+            <div key={index}>
+              <div>
+                <IconSelector
+                  label="Ícone"
+                  name="icon"
+                  index={index}
+                  onChange={onChange}
+                />
+                {renderFormSections(form, iconForm, onChange)}
               </div>
-            );
-          })}
-        </div>
-        <button
-          onClick={(e) => addIcon(e)}
-          className="mt-2 bg-slate-900 px-4 py-2 text-white rounded"
-        >
-          Adicionar bloco
-        </button>
-      </div>
+
+              {icons.length > 1 && (
+                <hr className="my-8 border-t border-gray-200" />
+              )}
+            </div>
+          );
+        })}
+      </FormSectionWrapper>
+
+      <button
+        onClick={(e) => addIcon(e)}
+        className="mt-2 bg-slate-900 px-4 py-2 text-white rounded flex justify-self-end"
+      >
+        Adicionar bloco
+      </button>
     </div>
   );
 };

@@ -273,9 +273,9 @@ export const sectionConfig = [
       { name: "mapTitleFont", type: "text", label: "Fonte do Título" },
       { name: "mapTitleColor", type: "color", label: "Cor do Título" },
 
-      { name: "mapSubTitleText", type: "text", label: "Subtítulo" },
-      { name: "mapSubTitleFont", type: "text", label: "Fonte do Subtítulo" },
-      { name: "mapSubTitleColor", type: "color", label: "Cor do Subtítulo" },
+      { name: "mapSubtitleText", type: "text", label: "Subtítulo" },
+      { name: "mapSubtitleFont", type: "text", label: "Fonte do Subtítulo" },
+      { name: "mapSubtitleColor", type: "color", label: "Cor do Subtítulo" },
 
       { name: "mapEmbedUrl", type: "text", label: "Iframe do Mapa" },
     ],
