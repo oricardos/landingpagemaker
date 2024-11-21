@@ -1,5 +1,6 @@
 import React from "react";
 import { renderFormSections } from "../../../utils/renderFormSections";
+import { Checkbox } from "../Checkbox";
 
 export const FooterForm = ({ form, onChange }) => {
   const sectionConfig = ["logoSrc", "sectionBackgroundColor", "iconTextColor"];
@@ -14,6 +15,7 @@ export const FooterForm = ({ form, onChange }) => {
       <div>
         <h3 className="text-lg font-medium">Configuração da Seção</h3>
         <div className="space-y-4">
+          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
           {renderFormSections(form, sectionConfig, onChange)}
         </div>
       </div>

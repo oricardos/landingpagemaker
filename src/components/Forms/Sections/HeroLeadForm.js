@@ -1,6 +1,7 @@
 import React from "react";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import FontSelector from "../FontSelector";
+import { Checkbox } from "../Checkbox";
 
 export const HeroLeadForm = ({ form, onChange }) => {
   const sectionConfig = [
@@ -28,6 +29,7 @@ export const HeroLeadForm = ({ form, onChange }) => {
           Configuração da Seção
         </h3>
         <div className="space-y-4 p-2 bg-white rounded">
+          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
           {renderFormSections(form, sectionConfig, onChange)}
         </div>
       </div>
@@ -36,7 +38,11 @@ export const HeroLeadForm = ({ form, onChange }) => {
         <h3 className="text-md font-medium mb-2 text-[#868F97]">Título</h3>
         <div className="space-y-4 p-2 bg-white rounded">
           {renderFormSections(form, titleConfig, onChange)}{" "}
-          <FontSelector label="Fonte do Título" onChange={onChange} name="titleFont" />
+          <FontSelector
+            label="Fonte do Título"
+            onChange={onChange}
+            name="titleFont"
+          />
         </div>
       </div>
 
@@ -44,7 +50,11 @@ export const HeroLeadForm = ({ form, onChange }) => {
         <h3 className="text-md font-medium mb-2 text-[#868F97]">Subtítulo</h3>
         <div className="space-y-4 p-2 bg-white rounded">
           {renderFormSections(form, subtitleConfig, onChange)}
-          <FontSelector label="Fonte do Subtítulo" onChange={onChange} name="subtitleFont" />
+          <FontSelector
+            label="Fonte do Subtítulo"
+            onChange={onChange}
+            name="subtitleFont"
+          />
         </div>
       </div>
 

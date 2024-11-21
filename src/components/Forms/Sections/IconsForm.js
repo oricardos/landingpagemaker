@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FontSelector from "../FontSelector";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
+import { Checkbox } from "../Checkbox";
 
 export const IconsForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor"];
@@ -28,6 +29,7 @@ export const IconsForm = ({ form, onChange }) => {
           Configuração da Seção
         </h3>
         <div className="space-y-4 p-2 bg-white rounded">
+          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
           {renderFormSections(form, sectionConfig, onChange)}
         </div>
       </div>

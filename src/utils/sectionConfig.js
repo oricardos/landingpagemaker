@@ -3,8 +3,8 @@ import { icon } from "@fortawesome/fontawesome-svg-core";
 export const sectionConfig = [
   {
     name: "Hero Lead",
-    show: true,
     data: {
+      show: true,
       logoSrc: null,
       titleText: "Título",
       subtitleText: "Subtítulo",
@@ -71,8 +71,8 @@ export const sectionConfig = [
   },
   {
     name: "hero",
-    show: true,
     data: {
+      show: true,
       titleText: "Título",
       titleFont: "Roboto",
       titleColor: "text-black",
@@ -128,8 +128,8 @@ export const sectionConfig = [
   },
   {
     name: "icons",
-    show: true,
     data: {
+      show: true,
       titleText: "Título",
       titleFont: "Roboto",
       titleColor: "text-black",
@@ -213,8 +213,8 @@ export const sectionConfig = [
   },
   {
     name: "video",
-    show: true,
     data: {
+      show: true,
       videoUrl:
         "https://www.youtube.com/watch?v=AkUWHR_OvrY&ab_channel=SentinelieSobral",
       sectionBackgroundColor: "bg-gray-100",
@@ -232,8 +232,8 @@ export const sectionConfig = [
   },
   {
     name: "map",
-    show: true,
     data: {
+      show: true,
       sectionBackgroundColor: "#f6f6f6",
 
       titleText: "Map Section",
@@ -282,8 +282,8 @@ export const sectionConfig = [
   },
   {
     name: "footer",
-    show: true,
     data: {
+      show: true,
       logoSrc: null,
       email: "email@email.com",
       whatsappLink: "",
