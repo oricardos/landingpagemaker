@@ -1,7 +1,6 @@
 import React from "react";
 
 export const IconsSection = ({ data, onUpdate }) => {
-  console.log(data)
   return (
     <>
       {data.show && (

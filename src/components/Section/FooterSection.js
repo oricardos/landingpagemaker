@@ -2,6 +2,7 @@ import React from "react";
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export const FooterSection = ({ data, onUpdate }) => {
+  console.log({ data });
   return (
     <>
       {data.show && (
