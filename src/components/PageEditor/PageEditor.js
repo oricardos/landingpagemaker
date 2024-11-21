@@ -105,7 +105,7 @@ export const PageEditor = () => {
             }
           />
         );
-      case "footer":
+      case "Footer":
         return (
           <FooterSection
             show={section.show}
