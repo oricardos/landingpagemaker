@@ -8,7 +8,7 @@ export const VideoSection = ({ data, onUpdate }) => {
         <section
           className={`py-8 flex justify-center`}
           style={{
-            backgroundColor: data.backgroundColor,
+            backgroundColor: data.sectionBackgroundColor,
             backgroundImage: data.backgroundImgSrc
               ? `url(${data.backgroundImgSrc})`
               : undefined,
@@ -17,8 +17,8 @@ export const VideoSection = ({ data, onUpdate }) => {
         >
           <div className="flex justify-center items-center w-full max-w-4xl mx-auto">
             <ReactPlayer
-              // url={data.videoUrl}
-              url={""}
+              url={data.videoUrl}
+              // url={""}
               width="100%"
               height="100%"
               className="aspect-video"

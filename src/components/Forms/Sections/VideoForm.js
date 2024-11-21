@@ -1,25 +1,21 @@
 import React from "react";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import { Checkbox } from "../Checkbox";
+import { FormSectionWrapper } from "../FormSectionWrapper";
 
 export const VideoForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor", "backgroundImgSrc"];
   const videoConfig = ["videoUrl"];
   return (
     <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium">Configuração da Seção</h3>
-        <div className="space-y-4">
-          <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-          {renderFormSections(form, sectionConfig, onChange)}
-        </div>
-      </div>
-      <div>
-        <h3 className="text-lg font-medium">Configuração da Seção</h3>
-        <div className="space-y-4">
-          {renderFormSections(form, videoConfig, onChange)}
-        </div>
-      </div>
+      <FormSectionWrapper title="Configuração da Seção">
+        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
+        {renderFormSections(form, sectionConfig, onChange)}
+      </FormSectionWrapper>
+
+      <FormSectionWrapper title="Vídeo">
+        {renderFormSections(form, videoConfig, onChange)}
+      </FormSectionWrapper>
     </div>
   );
 };
