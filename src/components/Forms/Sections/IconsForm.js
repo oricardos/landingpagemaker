@@ -4,10 +4,6 @@ import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
 
 export const IconsForm = ({ form, onChange }) => {
-  const initialIconConfig = [];
-
-  console.log("form", form);
-
   const teste = {
     icon: "CloudArrowUpIcon",
     title: "Push to deploy",
@@ -18,17 +14,12 @@ export const IconsForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor"];
   const subtitleConfig = ["subtitleText", "subtitleColor"];
-  const iconsConfig = [
-    "iconTitle",
-    "iconSubtitle",
-    "iconBackgroundColor",
-    "iconColor",
-    "iconTitleFont",
-    "iconTitleColor",
-    "iconSubtitleFont",
-    "iconSubtitleFont",
-    "iconSubtitleColor",
-  ];
+  const iconsGeneralConfig = ["iconColor", "iconBackgroundColor"];
+
+  const iconsTitle = ["iconTitleColor"];
+  const iconsSubTitle = ["iconSubtitleColor"];
+
+  const iconsConfig = ["iconTitle", "iconSubtitle"];
 
   const [icons, setIcons] = useState([iconsConfig]);
 
@@ -67,30 +58,50 @@ export const IconsForm = ({ form, onChange }) => {
           <FontSelector
             label="Fonte do Subtítulo"
             onChange={onChange}
-            name="subtitleFont"
+            name="subTitleFont"
           />
         </div>
       </div>
 
       <div>
-        {/* <h3 className="text-md font-medium mb-2 text-[#868F97]">
-          Estilização do Ícone
+        <h3 className="text-md font-medium mb-2 text-[#868F97]">
+          Configurações Gerais dos ícones
         </h3>
         <div className="space-y-4 p-2 bg-white rounded">
-          {renderFormSections(form, iconsConfig, onChange)}
-        </div> */}
+          {renderFormSections(form, iconsGeneralConfig, onChange)}
+          {renderFormSections(form, iconsTitle, onChange)}
+          <FontSelector
+            label="Fonte do Título"
+            onChange={onChange}
+            name="iconTitleFont"
+          />
+          {renderFormSections(form, iconsSubTitle, onChange)}
+          <FontSelector
+            label="Fonte do Subtítulo"
+            onChange={onChange}
+            name="iconSubtitleFont"
+          />
+        </div>
+      </div>
 
+      <div>
         <div className="space-y-4 mt-4 p-2 bg-white rounded">
-          {icons.map((icon, index) => {
+          {icons.map((iconForm, index) => {
             return (
               <div key={index}>
-                <IconSelector
-                  label="Ícone"
-                  name="icon"
-                  index={index} // Passa o índice do item atual
-                  onChange={onChange} // Função que atualiza o array
-                />
-                {renderFormSections(form, icon, onChange)}
+                <div>
+                  <IconSelector
+                    label="Ícone"
+                    name="icon"
+                    index={index}
+                    onChange={onChange}
+                  />
+                  {renderFormSections(form, iconForm, onChange)}
+                </div>
+
+                {icons.length > 1 && (
+                  <hr className="my-8 border-t border-gray-200" />
+                )}
               </div>
             );
           })}
@@ -99,7 +110,7 @@ export const IconsForm = ({ form, onChange }) => {
           onClick={(e) => addIcon(e)}
           className="mt-2 bg-slate-900 px-4 py-2 text-white rounded"
         >
-          Adicionar ícone
+          Adicionar bloco
         </button>
       </div>
     </div>

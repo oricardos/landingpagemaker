@@ -140,19 +140,20 @@ export const sectionConfig = [
 
       sectionBackgroundColor: "#fff",
 
+      iconColor: "#fff",
+      iconBackgroundColor: "#3B82F6",
+
+      iconTitleFont: "Roboto",
+      iconTitleColor: "#000",
+
+      iconSubtitleFont: "Poppins",
+      iconSubtitleColor: "#000",
+
       icons: [
         {
           icon: "",
-          iconBackgroundColor: "#3B82F6",
-          iconColor: "#fff",
-
           iconTitle: "Icon Title",
-          iconTitleFont: "Roboto",
-          iconTitleColor: "#000",
-
           iconSubtitle: "Icon Subtitle",
-          iconSubtitleFont: "Poppins",
-          iconSubtitleColor: "#000",
         },
       ],
     },
