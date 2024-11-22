@@ -2,7 +2,6 @@ import React from "react";
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export const FooterSection = ({ data, onUpdate }) => {
-  console.log({ data });
   return (
     <>
       {data.show && (
@@ -10,7 +9,7 @@ export const FooterSection = ({ data, onUpdate }) => {
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
         >
-          <div className="max-w-6xl mx-auto flex flex-col md:gap-20 md:flex-row md:justify-start items-start space-y-4 md:space-y-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:gap-20 md:flex-row md:justify-start items-start space-y-4 md:space-y-0">
             {/* Logomarca */}
             {data.logoSrc && (
               <img

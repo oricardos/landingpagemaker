@@ -8,7 +8,7 @@ export const MapSection = ({ data, onUpdate }) => {
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
         >
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:space-x-6">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-6">
             {/* Bloco de Texto */}
             <div className={`flex-1 mb-6 md:mb-0`}>
               {data.titleText && (

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ReactDOMServer from "react-dom/server";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Monitor, Smartphone, Eye } from "lucide-react";
 import { Input } from "../Forms/Input";
@@ -123,25 +124,53 @@ export const PageEditor = () => {
   const tabClass =
     "border-0 rounded ring-0 outline-none data-[selected]:bg-white data-[selected]:text-gray-900 transition-all";
 
+  // TODO - remover essa parte daqui
+  const handleOpenNewTab = () => {
+    // gera a pagina de preview
+    const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Preview</title>
+          <script src="https://cdn.tailwindcss.com"></script>
+          <style>
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+          </style>
+        </head>
+        <body>
+          ${sections
+            .map((section) =>
+              ReactDOMServer.renderToString(renderSection(section))
+            )
+            .join("")}
+        </body>
+        </html>
+      `;
+
+    const blob = new Blob([htmlContent], { type: "text/html" });
+    const blobURL = URL.createObjectURL(blob);
+
+    window.open(blobURL, "_blank");
+  };
+
   return (
     <div className="flex h-screen bg-background">
-      <FinalPage
-        viewPage={viewPage}
-        setViewPage={setViewPage}
-        sections={sections}
-        renderSection={renderSection}
-      />
-      {/* Main Content */}
       <main className="flex-1 px-6 overflow-auto">
         <div className="w-full max-w-screen-2xl mx-auto">
           <div className="fixed left-0 right-0 p-6 bg-white border-b z-[9999]">
-            <header className="flex justify-between items-center">
+            <header className="max-w-screen-2xl mx-auto flex justify-between items-center">
               <h1 className="text-2xl font-bold">Landing Page Maker</h1>
               <div className="flex items-center space-x-2 bg-muted p-1 rounded-md">
                 <button
                   size="icon"
                   aria-label="Visualizar página final"
-                  onClick={() => setViewPage(true)}
+                  onClick={handleOpenNewTab}
                 >
                   <Eye className="h-4 w-4" />
                 </button>

@@ -99,14 +99,14 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
           </Dialog>
         </header> */}
 
-          <div className="relative">
+          <div
+            className="relative"
+            style={{
+              backgroundColor: data.sectionBackgroundColor,
+            }}
+          >
             <div className="mx-auto max-w-7xl">
-              <div
-                style={{
-                  backgroundColor: data.sectionBackgroundColor,
-                }}
-                className="relative z-10 pt-14 lg:w-full lg:max-w-2xl"
-              >
+              <div className="relative z-10 pt-14 lg:w-full lg:max-w-2xl">
                 <svg
                   // style={{
                   //   backgroundColor: data.sectionBackgroundColor,
@@ -115,7 +115,7 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   aria-hidden="true"
-                  className="absolute inset-y-0 right-[-1px] hidden h-full w-80 translate-x-1/2 transform lg:block"
+                  className="absolute inset-y-0 right-0 hidden h-full w-80 translate-x-1/2 transform lg:block"
                 >
                   <polygon
                     fill={data.sectionBackgroundColor}
