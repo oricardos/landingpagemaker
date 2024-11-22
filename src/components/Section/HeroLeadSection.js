@@ -118,7 +118,7 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   className="absolute inset-y-0 right-0 hidden h-full w-80 translate-x-1/2 transform lg:block"
                 >
                   <polygon
-                    fill={data.sectionBackgroundColor}
+                    fill={data.sectionBackgroundColor || "#fff"}
                     points="0,0 90,0 50,100 0,100"
                   />
                 </svg>

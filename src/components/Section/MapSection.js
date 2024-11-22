@@ -43,11 +43,11 @@ export const MapSection = ({ data, onUpdate }) => {
               </h5>
               <p
                 style={{
-                  color: data.mapSubTitleColor,
-                  fontFamily: data.mapSubTitleFont,
+                  color: data.mapSubtitleColor,
+                  fontFamily: data.mapSubtitleFont,
                 }}
               >
-                {data.mapSubTitleText}
+                {data.mapSubtitleText}
               </p>
               <div
                 className="flex-1"

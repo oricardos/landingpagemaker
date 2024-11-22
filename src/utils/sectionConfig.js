@@ -1,5 +1,3 @@
-import { icon } from "@fortawesome/fontawesome-svg-core";
-
 export const sectionConfig = [
   {
     name: "Hero Lead",
@@ -172,7 +170,7 @@ export const sectionConfig = [
       { name: "subtitleFont", type: "text", label: "Fonte do Subtítulo" },
       { name: "subtitleColor", type: "color", label: "Cor do Subtítulo" },
 
-      { name: "icons", type: "text", label: "Ícone" },
+      { name: "icons", type: "text", label: "Ícone", value: [] },
 
       { name: "icon", type: "text", label: "Ícone" },
       {
@@ -248,9 +246,9 @@ export const sectionConfig = [
       mapTitleFont: "Roboto",
       mapTitleColor: "#000",
 
-      mapSubTitleText: "",
-      mapSubTitleFont: "Poppins",
-      mapSubTitleColor: "#000",
+      mapSubtitleText: "",
+      mapSubtitleFont: "Poppins",
+      mapSubtitleColor: "#000",
 
       mapEmbedUrl:
         '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59978.30878222007!2d-44.029435299999996!3d-20.023438199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6bfe0599c6d59%3A0x4f5d614ebc356e9d!2sPista%20de%20skate%20-%20Vila%20ideal!5e0!3m2!1spt-BR!2sbr!4v1730815066650!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
@@ -273,7 +271,7 @@ export const sectionConfig = [
       { name: "mapTitleFont", type: "text", label: "Fonte do Título" },
       { name: "mapTitleColor", type: "color", label: "Cor do Título" },
 
-      { name: "mapSubtitleText", type: "text", label: "Subtítulo" },
+      { name: "mapSubtitleText", type: "text", label: "Texto" },
       { name: "mapSubtitleFont", type: "text", label: "Fonte do Subtítulo" },
       { name: "mapSubtitleColor", type: "color", label: "Cor do Subtítulo" },
 
@@ -292,6 +290,12 @@ export const sectionConfig = [
       sectionBackgroundColor: "bg-gray-100",
     },
     form: [
+      {
+        name: "show",
+        label: "Exibir seção",
+        type: "checkbox",
+        value: "true",
+      },
       { name: "logoSrc", type: "file", label: "Logo" },
       { name: "email", type: "text", label: "E-mail" },
       { name: "whatsappLink", type: "text", label: "Link do WhatsApp" },

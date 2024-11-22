@@ -16,13 +16,17 @@ const EditForm = ({ sectionData, onChange }) => {
       newValue = URL.createObjectURL(files[0]);
     }
 
-    if (name === "icon" || name === "iconTitle" || name === "iconSubtitle") {
-      const teste = sectionData.data.icons.map((item) => {
-        return { ...item, [name]: newValue };
-      });
+    // if (name === "icon" || name === "iconTitle" || name === "iconSubtitle") {
+    //   newValue = sectionData.data.icons.map((item, index) => {
+    //     // Substitua `targetIndex` pelo índice ou identificador exclusivo do item que está sendo atualizado
+    //     if (index === targetIndex) {
+    //       return { ...item, [name]: value }; // Atualiza apenas a propriedade específica
+    //     }
+    //     return item; // Mantém os demais itens inalterados;
+    //   });
+    // }
 
-      console.log({ teste });
-    }
+    console.log(newValue);
 
     onChange(name, newValue);
   };
@@ -49,7 +53,7 @@ const EditForm = ({ sectionData, onChange }) => {
   };
 
   return (
-    <form className="space-y-4 mb-10 overflow-y-auto h-[fill-available] px-2 pt-4 bg-[#E6E9EC]">
+    <form className="space-y-4 pb-5 overflow-y-auto h-[fill-available] px-2 pt-4 bg-[#E6E9EC]">
       {renderForm(sectionData)}
     </form>
   );

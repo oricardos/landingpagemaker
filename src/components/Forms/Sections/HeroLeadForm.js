@@ -16,7 +16,7 @@ export const HeroLeadForm = ({ form, onChange }) => {
     "formPlaceholderName",
     "formPlaceholderPhone",
     "formPlaceholderEmail",
-    "formTextColor",
+    // "formTextColor",
     "buttonText",
     "buttonColor",
     "buttonTextColor",

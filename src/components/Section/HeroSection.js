@@ -59,26 +59,18 @@ export const HeroSection = ({ data, onUpdate }) => {
             }}
             className="relative"
           >
-            <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">
+            <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end items-center">
               <div className="lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:right-1/2 xl:w-1/2">
                 <div className="relative lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
                   <img
-                    src={data.overlayImgSrc}
+                    src={data.overlayImgSrc || "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"}
                     alt="Imagem de sobreposição"
                     className="object-cover"
                   />
-                  {/* <img
-                alt=""
-                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-                className="absolute inset-0 size-full bg-gray-50 object-cover"
-              /> */}
                 </div>
               </div>
               <div className="px-6 lg:contents">
                 <div className="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2">
-                  {/* <p className="text-base/7 font-semibold text-indigo-600">
-                Deploy faster
-              </p> */}
                   <h1
                     style={{
                       color: data.titleColor,

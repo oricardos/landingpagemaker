@@ -9,7 +9,7 @@ export const MapForm = ({ form, onChange }) => {
   const titleConfig = ["titleText", "titleColor"];
   const contentConfig = ["contentText", "contentColor"];
   const mapTitle = ["mapTitleText", "mapTitleColor"];
-  const mapSubTitle = ["mapSubTitleText", "mapSubTitleColor"];
+  const mapSubTitle = ["mapSubtitleText", "mapSubtitleColor"];
   const mapEmbedUrl = ["mapEmbedUrl"];
   return (
     <div className="space-y-6">
@@ -50,7 +50,7 @@ export const MapForm = ({ form, onChange }) => {
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
-          name="mapSubTitleFont"
+          name="mapSubtitleFont"
         />
       </FormSectionWrapper>
 

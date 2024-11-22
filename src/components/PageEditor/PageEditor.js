@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Monitor, Smartphone, Eye } from "lucide-react";
 import { Input } from "../Forms/Input";
 import { TextArea } from "../Forms/TextArea";
 import EditPanel from "../EditPanel/EditPanel";
-import { FinalPage } from "../FinalPage/FinalPage";
 import { HeroLeadSection } from "../Section/HeroLeadSection";
 import { HeroSection } from "../Section/HeroSection";
 import { IconsSection } from "../Section/IconsSection";
@@ -19,11 +18,12 @@ import { MapSection } from "../Section/MapSection";
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
   const [previewDevice, setPreviewDevice] = useState("desktop");
-  const [viewPage, setViewPage] = useState(false);
 
   const [sections, setSections] = useState(sectionConfig);
 
   const [selectedSection, setSelectedSection] = useState(null);
+
+  const [usedFonts, setUsedFonts] = useState([]);
 
   const handleUpdateSectionData = (sectionName, field, value) => {
     setSelectedSection((prevState) => {
@@ -59,7 +59,6 @@ export const PageEditor = () => {
       case "Hero Lead":
         return (
           <HeroLeadSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -69,7 +68,6 @@ export const PageEditor = () => {
       case "Hero":
         return (
           <HeroSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -79,7 +77,6 @@ export const PageEditor = () => {
       case "Ícones":
         return (
           <IconsSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -89,7 +86,6 @@ export const PageEditor = () => {
       case "Vídeo":
         return (
           <VideoSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -99,7 +95,6 @@ export const PageEditor = () => {
       case "Mapa":
         return (
           <MapSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -109,7 +104,6 @@ export const PageEditor = () => {
       case "Footer":
         return (
           <FooterSection
-            show={section.show}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -121,12 +115,36 @@ export const PageEditor = () => {
     }
   };
 
+  const handleSave = () => {
+    console.log(sections);
+  };
+
   const tabClass =
     "border-0 rounded ring-0 outline-none data-[selected]:bg-white data-[selected]:text-gray-900 transition-all";
 
+    useEffect(() => {
+      const fonts = new Set();
+  
+      sections.forEach((section) => {
+        const data = section.data;
+        const fontKeys = Object.keys(data).filter((key) => key.includes("Font"));
+        fontKeys.forEach((fontKey) => {
+          fonts.add(data[fontKey]); // Adiciona as fontes ao Set (garantindo unicidade)
+        });
+      });
+  
+      setUsedFonts(Array.from(fonts)); // Converte o Set para um Array e atualiza o estado
+    }, [sections]);
+
   // TODO - remover essa parte daqui
+  // gera a pagina de preview
   const handleOpenNewTab = () => {
-    // gera a pagina de preview
+    const googleFontsLink = `
+    <link href="https://fonts.googleapis.com/css2?${usedFonts
+      .map((font) => `family=${font.replace(/ /g, "+")}`) // Substitui espaços por "+"
+      .join("&")}&display=swap" rel="stylesheet">
+  `;
+
     const htmlContent = `
         <!DOCTYPE html>
         <html lang="en">
@@ -134,6 +152,7 @@ export const PageEditor = () => {
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Preview</title>
+          ${googleFontsLink}
           <script src="https://cdn.tailwindcss.com"></script>
           <style>
             * {
@@ -192,7 +211,7 @@ export const PageEditor = () => {
                 </button>
               </div>
               <div className="max-w-[100px] w-full">
-                <button className="w-full bg-slate-900 text-white py-2 rounded">
+                <button onClick={handleSave} className="w-full bg-slate-900 text-white py-2 rounded">
                   Publicar
                 </button>
               </div>
@@ -208,20 +227,20 @@ export const PageEditor = () => {
                   className="w-full"
                 >
                   <TabList className="grid w-full grid-cols-3 rounded bg-gray-100 px-1 py-2">
-                    <Tab className={tabClass} value="Sections">
+                    <Tab className={tabClass} value="Template">
                       Template
                     </Tab>
-                    <Tab className={tabClass} value="seo">
+                    <Tab className={tabClass} value="Conteudo">
                       Conteúdo
                     </Tab>
-                    <Tab className={tabClass} value="advanced">
+                    <Tab className={tabClass} value="SEO">
                       SEO e Analytics
                     </Tab>
                   </TabList>
                   <TabPanels>
                     <TabPanel>Templates</TabPanel>
                     <TabPanel
-                      value="Sections"
+                      value="Template"
                       className="mt-6 space-y-6 transition-all"
                     >
                       <EditPanel
@@ -237,7 +256,7 @@ export const PageEditor = () => {
                     </TabPanel>
 
                     <TabPanel
-                      value="seo"
+                      value="Conteudo"
                       className="mt-6 space-y-6 transition-all"
                     >
                       <Input
@@ -259,8 +278,9 @@ export const PageEditor = () => {
                         </label>
                       </div>
                     </TabPanel>
+
                     <TabPanel
-                      value="advanced"
+                      value="SEO"
                       className="mt-6 space-y-6 transition-all"
                     >
                       <TextArea
@@ -281,7 +301,6 @@ export const PageEditor = () => {
 
             {/* Preview Panel */}
             <div className="space-y-4 w-full ml-[22rem]">
-              {/* <h3 className="text-lg font-semibold">Preview</h3> */}
               <div
                 className={`border rounded-lg overflow-hidden ${
                   previewDevice === "mobile"
@@ -289,11 +308,6 @@ export const PageEditor = () => {
                     : "w-full"
                 }`}
               >
-                {/* <div className="bg-gray-200 p-2 text-center text-sm text-gray-600">
-                  {previewDevice === "desktop"
-                    ? "Desktop Preview"
-                    : "Mobile Preview"}
-                </div> */}
                 <div className="bg-white overflow-y-auto">
                   {/* Placeholder for actual page preview */}
                   <div className="w-full h-full flex">

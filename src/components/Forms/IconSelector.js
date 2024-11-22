@@ -11,11 +11,12 @@ export const IconSelector = ({ label, name, onChange, index }) => {
   // };
 
   const handleIconChange = (selectedOption) => {
+    console.log("to aqui: ", selectedOption);
     setSelectedIcon(selectedOption.value);
     onChange({
       target: {
         name: name,
-        value: selectedOption.value,
+        value: selectedOption.label,
         index: index, // Adiciona o índice ao target
       },
     });
