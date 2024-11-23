@@ -22,7 +22,7 @@ export const FooterSection = ({ data, onUpdate }) => {
             {/* Informações de Contato */}
             <div
               style={{ color: data.iconTextColor }}
-              className={`flex flex-col items-center md:items-start space-y-4`}
+              className={`flex flex-col items-start space-y-4`}
             >
               {/* Endereço de E-mail */}
               <a
