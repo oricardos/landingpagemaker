@@ -1,17 +1,15 @@
 import React from "react";
 import * as HeroiconsSolid from "@heroicons/react/20/solid";
-console.log('icones',Object.keys(HeroiconsSolid));
 
 const RenderIcon = ({ icon, iconColor, index }) => {
   
-  // Busca dinâmica pelo componente de ícone
+  // busca o icone
   const IconComponent = HeroiconsSolid[icon];
   
-  console.log("Ícone requisitado:", icon, "Componente encontrado:", IconComponent);
-  // Valida se o ícone existe
+  // valida se existe
   if (!IconComponent) {
     console.warn(`Ícone "${icon}" não encontrado em lucide-react.`);
-    return null; // Evita renderizar um componente inválido
+    return null;
   }
 
   return (
@@ -22,23 +20,9 @@ const RenderIcon = ({ icon, iconColor, index }) => {
 };
 
 export const IconsSection = ({ data, onUpdate }) => {
-  // console.log(data);
   return (
     <>
       {data.show && (
-        // <section className={`py-8 ${data.sectionBackgroundColor}`}>
-        //   <div className="max-w-5xl mx-auto flex justify-around items-center">
-        //     {data.icons.slice(0, 5).map((item, index) => (
-        //       <div key={index} className="flex flex-col items-center space-y-2">
-        //         {/* Ícone */}
-        //         <div className={`text-4xl ${data.iconColor}`}>{item.icon}</div>
-
-        //         {/* Título abaixo do ícone */}
-        //         <p className={`text-center ${data.iconColor}`}>{item.title}</p>
-        //       </div>
-        //     ))}
-        //   </div>
-        // </section>
         <div
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className="py-24 sm:py-32"
@@ -64,7 +48,6 @@ export const IconsSection = ({ data, onUpdate }) => {
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                 {data.icons.map((feature, index) => {
-                  console.log("aqui: ", feature);
                   return (
                     <div key={index} className="relative pl-16">
                       <dt
@@ -83,7 +66,7 @@ export const IconsSection = ({ data, onUpdate }) => {
                           {feature.icon && (
                             <RenderIcon
                               key={index}
-                              icon={feature.icon} // Apenas passe o nome do ícone como string
+                              icon={feature.icon}
                               iconColor={data.iconColor}
                               index={index}
                             />

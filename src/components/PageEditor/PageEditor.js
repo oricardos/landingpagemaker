@@ -59,6 +59,7 @@ export const PageEditor = () => {
       case "Hero Lead":
         return (
           <HeroLeadSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -68,6 +69,7 @@ export const PageEditor = () => {
       case "Hero":
         return (
           <HeroSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -77,6 +79,7 @@ export const PageEditor = () => {
       case "Ícones":
         return (
           <IconsSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -86,6 +89,7 @@ export const PageEditor = () => {
       case "Vídeo":
         return (
           <VideoSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -95,6 +99,7 @@ export const PageEditor = () => {
       case "Mapa":
         return (
           <MapSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -104,6 +109,7 @@ export const PageEditor = () => {
       case "Footer":
         return (
           <FooterSection
+            previewDevice={previewDevice}
             data={section.data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -122,19 +128,19 @@ export const PageEditor = () => {
   const tabClass =
     "border-0 rounded ring-0 outline-none data-[selected]:bg-white data-[selected]:text-gray-900 transition-all";
 
-    useEffect(() => {
-      const fonts = new Set();
-  
-      sections.forEach((section) => {
-        const data = section.data;
-        const fontKeys = Object.keys(data).filter((key) => key.includes("Font"));
-        fontKeys.forEach((fontKey) => {
-          fonts.add(data[fontKey]); // Adiciona as fontes ao Set (garantindo unicidade)
-        });
+  useEffect(() => {
+    const fonts = new Set();
+
+    sections.forEach((section) => {
+      const data = section.data;
+      const fontKeys = Object.keys(data).filter((key) => key.includes("Font"));
+      fontKeys.forEach((fontKey) => {
+        fonts.add(data[fontKey]); // Adiciona as fontes ao Set (garantindo unicidade)
       });
-  
-      setUsedFonts(Array.from(fonts)); // Converte o Set para um Array e atualiza o estado
-    }, [sections]);
+    });
+
+    setUsedFonts(Array.from(fonts)); // Converte o Set para um Array e atualiza o estado
+  }, [sections]);
 
   // TODO - remover essa parte daqui
   // gera a pagina de preview
@@ -211,7 +217,10 @@ export const PageEditor = () => {
                 </button>
               </div>
               <div className="max-w-[100px] w-full">
-                <button onClick={handleSave} className="w-full bg-slate-900 text-white py-2 rounded">
+                <button
+                  onClick={handleSave}
+                  className="w-full bg-slate-900 text-white py-2 rounded"
+                >
                   Publicar
                 </button>
               </div>
