@@ -1,6 +1,7 @@
 import React from "react";
 
 export const HeroLeadSection = ({ data, onUpdate }) => {
+  console.log(data)
   return (
     <>
       {data.show && (

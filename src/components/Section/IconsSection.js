@@ -2,7 +2,7 @@ import React from "react";
 import * as Icons from "lucide-react";
 
 export const IconsSection = ({ data, onUpdate }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <>
       {data.show && (
@@ -43,10 +43,10 @@ export const IconsSection = ({ data, onUpdate }) => {
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-                {data.icons.map((feature) => {
-                  console.log("aqui: ", feature);
+                {data.icons.map((feature, index) => {
+                  // console.log("aqui: ", feature);
                   return (
-                    <div key={feature.icon} className="relative pl-16">
+                    <div key={index} className="relative pl-16">
                       <dt
                         style={{
                           color: data.iconTitleColor,

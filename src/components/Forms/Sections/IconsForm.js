@@ -4,6 +4,7 @@ import { renderFormSections } from "../../../utils/renderFormSections";
 import { IconSelector } from "../IconSelector";
 import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
+import { Input } from "../Input";
 
 export const IconsForm = ({ form, onChange }) => {
   const sectionConfig = ["sectionBackgroundColor"];
@@ -23,7 +24,7 @@ export const IconsForm = ({ form, onChange }) => {
 
   const addIcon = (e) => {
     e.preventDefault();
-    setIcons([...icons, iconsConfig]);
+    setIcons([...icons, ...iconsConfig]);
   };
 
   const handleChangeIcon = (e, index) => {
@@ -122,15 +123,17 @@ export const IconsForm = ({ form, onChange }) => {
 
               {/* Atualiza os outros campos (formulário dinâmico) */}
               {Object.keys(iconForm).map((field) => {
+                if (field === "icon") return null;
                 return (
                   <div key={field}>
-                    <label>{field}</label>
+                    <Input label={field} name={field} value={iconForm[field] || ""} onChange={(e) => handleChangeIcon(e, index)} />
+                    {/* <label>{field}</label>
                     <input
-                      type="text"
+                      type={field === "icon" ? "hidden" : "text"}
                       name={field}
                       value={iconForm[field] || ""}
                       onChange={(e) => handleChangeIcon(e, index)}
-                    />
+                    /> */}
                   </div>
                 );
               })}
