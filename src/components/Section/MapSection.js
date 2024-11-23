@@ -1,6 +1,9 @@
 import React from "react";
 
 export const MapSection = ({ data, onUpdate }) => {
+  const isMobile = window.innerWidth < 768;
+  const map = data.mapEmbedUrl;
+  const renderMap = isMobile ? map.replace(/width="[^"]*"/, 'width="100%"') : map
   return (
     <>
       {data.show && (
@@ -49,10 +52,14 @@ export const MapSection = ({ data, onUpdate }) => {
               >
                 {data.mapSubtitleText}
               </p>
-              <div
-                className="flex-1"
-                dangerouslySetInnerHTML={{ __html: data.mapEmbedUrl }}
-              ></div>
+              <div className="flex-1 overflow-hidden">
+                <div
+                  className="w-full sm:w-auto"
+                  dangerouslySetInnerHTML={{
+                    __html: renderMap
+                  }}
+                ></div>
+              </div>
             </div>
           </div>
         </section>
