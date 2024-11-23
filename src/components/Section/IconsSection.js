@@ -1,5 +1,25 @@
 import React from "react";
-import * as Icons from "lucide-react";
+import * as HeroiconsSolid from "@heroicons/react/20/solid";
+console.log('icones',Object.keys(HeroiconsSolid));
+
+const RenderIcon = ({ icon, iconColor, index }) => {
+  
+  // Busca dinâmica pelo componente de ícone
+  const IconComponent = HeroiconsSolid[icon];
+  
+  console.log("Ícone requisitado:", icon, "Componente encontrado:", IconComponent);
+  // Valida se o ícone existe
+  if (!IconComponent) {
+    console.warn(`Ícone "${icon}" não encontrado em lucide-react.`);
+    return null; // Evita renderizar um componente inválido
+  }
+
+  return (
+    <div className={`flex text-[${iconColor}]`} key={index}>
+      <IconComponent color={iconColor} className="size-6" />
+    </div>
+  );
+};
 
 export const IconsSection = ({ data, onUpdate }) => {
   // console.log(data);
@@ -44,7 +64,7 @@ export const IconsSection = ({ data, onUpdate }) => {
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
               <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                 {data.icons.map((feature, index) => {
-                  // console.log("aqui: ", feature);
+                  console.log("aqui: ", feature);
                   return (
                     <div key={index} className="relative pl-16">
                       <dt
@@ -60,20 +80,14 @@ export const IconsSection = ({ data, onUpdate }) => {
                           }}
                           className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg"
                         >
-                          {/* {feature.icon ? (
-                            <feature.icon
-                              style={{ color: data.iconColor }}
-                              aria-hidden="true"
-                              className="size-6"
+                          {feature.icon && (
+                            <RenderIcon
+                              key={index}
+                              icon={feature.icon} // Apenas passe o nome do ícone como string
+                              iconColor={data.iconColor}
+                              index={index}
                             />
-                          ) : null} */}
-                          {feature.icon && Icons[feature.icon]
-                            ? React.createElement(Icons[feature.icon], {
-                                style: { color: data.iconColor },
-                                "aria-hidden": "true",
-                                className: "size-6",
-                              })
-                            : null}
+                          )}
                         </div>
                         {feature.iconTitle}
                       </dt>
