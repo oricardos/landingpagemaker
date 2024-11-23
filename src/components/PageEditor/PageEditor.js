@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
 import ReactDOMServer from "react-dom/server";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Monitor, Smartphone, Eye } from "lucide-react";
@@ -145,43 +146,51 @@ export const PageEditor = () => {
   // TODO - remover essa parte daqui
   // gera a pagina de preview
   const handleOpenNewTab = () => {
-    const googleFontsLink = `
-    <link href="https://fonts.googleapis.com/css2?${usedFonts
-      .map((font) => `family=${font.replace(/ /g, "+")}`) // Substitui espaços por "+"
-      .join("&")}&display=swap" rel="stylesheet">
-  `;
-
+    const newTab = window.open("", "_blank");
+  
     const htmlContent = `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Preview</title>
-          ${googleFontsLink}
-          <script src="https://cdn.tailwindcss.com"></script>
-          <style>
-            * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-            }
-          </style>
-        </head>
-        <body>
-          ${sections
-            .map((section) =>
-              ReactDOMServer.renderToString(renderSection(section))
-            )
-            .join("")}
-        </body>
-        </html>
-      `;
-
-    const blob = new Blob([htmlContent], { type: "text/html" });
-    const blobURL = URL.createObjectURL(blob);
-
-    window.open(blobURL, "_blank");
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Preview</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+        </style>
+      </head>
+      <body>
+        <div id="root"></div>
+      </body>
+      </html>
+    `;
+  
+    // Inserir o conteúdo HTML na nova aba
+    newTab.document.open();
+    newTab.document.write(htmlContent);
+    newTab.document.close();
+  
+    // Aguardar o carregamento da nova aba
+    newTab.onload = () => {
+      const rootElement = newTab.document.getElementById("root");
+  
+      // Renderizar o React na nova aba
+      const NewTabContent = () => (
+        <div>
+          {sections.map((section, index) => (
+            <div key={index}>{renderSection(section)}</div>
+          ))}
+        </div>
+      );
+  
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(<NewTabContent />);
+    };
   };
 
   return (
