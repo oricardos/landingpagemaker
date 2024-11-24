@@ -52,7 +52,7 @@ export const sectionConfig = [
       },
       {
         name: "subtitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Subtítulo",
         value: "Poppins",
       },

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import FontSelector from "../FontSelector";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { renderFields } from "../../../utils/renderFields";
 
 export const HeroLeadForm = ({ fields, onChange }) => {
 
   const sectionConfig = [
+    "show",
     "logoSrc",
     "backgroundImgSrc",
     "sectionBackgroundColor",
   ];
   const titleConfig = ["titleText", "titleColor", "titleFont"];
-  const subtitleConfig = ["subtitleText", "subtitleColor"];
+  const subtitleConfig = ["subtitleText", "subtitleColor", "subtitleFont"];
   const formConfig = [
     "formPlaceholderName",
     "formPlaceholderPhone",
@@ -37,11 +37,6 @@ export const HeroLeadForm = ({ fields, onChange }) => {
       {/* Subtítulo */}
       <FormSectionWrapper title="Subtítulo">
         {renderFields(fields, subtitleConfig, onChange)}
-        <FontSelector
-          label="Fonte do Subtítulo"
-          onChange={onChange}
-          name="subtitleFont"
-        />
       </FormSectionWrapper>
 
       {/* Formulário */}
