@@ -129,7 +129,7 @@ export const sectionConfig = [
       },
       {
         name: "titleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título",
         value: "Roboto",
       },
@@ -147,7 +147,7 @@ export const sectionConfig = [
       },
       {
         name: "subtitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Subtítulo",
         value: "Poppins",
       },
@@ -166,7 +166,7 @@ export const sectionConfig = [
       },
       {
         name: "contentFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Conteúdo",
         value: "Poppins",
       },

@@ -12,9 +12,9 @@ export const HeroForm = ({ fields, onChange }) => {
     "overlayImgSrc",
     "backgroundImgSrc",
   ];
-  const titleConfig = ["titleText", "titleColor"];
-  const subtitleConfig = ["subtitleText", "subtitleColor"];
-  const contentConfig = ["contentColor"];
+  const titleConfig = ["titleText", "titleColor", "titleFont"];
+  const subtitleConfig = ["subtitleText", "subtitleColor", "subtitleFont"];
+  const contentConfig = ["contentColor", "contentFont"];
   const buttonConfig = [
     "buttonText",
     "buttonColor",
@@ -31,12 +31,10 @@ export const HeroForm = ({ fields, onChange }) => {
 
       <FormSectionWrapper title="Título">
         {renderFields(fields, titleConfig, onChange)}
-        <FontSelector label="Fonte" name="titleFont" onChange={onChange} />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Subtítulo">
         {renderFields(fields, subtitleConfig, onChange)}
-        <FontSelector label="Fonte" name="subtitleFont" onChange={onChange} />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Conteúdo">
@@ -45,7 +43,6 @@ export const HeroForm = ({ fields, onChange }) => {
           value={fields.find((field) => field.name === "contentText").value}
           onChange={onChange}
         />
-        <FontSelector label="Fonte" name="contentFont" onChange={onChange} />
         {renderFields(fields, contentConfig, onChange)}
       </FormSectionWrapper>
 
