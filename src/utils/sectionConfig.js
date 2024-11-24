@@ -231,7 +231,7 @@ export const sectionConfig = [
       },
       {
         name: "titleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título",
         value: "Roboto",
       },
@@ -249,7 +249,7 @@ export const sectionConfig = [
       },
       {
         name: "subtitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Subtítulo",
         value: "Poppins",
       },
@@ -279,7 +279,7 @@ export const sectionConfig = [
       },
       {
         name: "iconTitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título do Ícone",
         value: "Roboto",
       },
@@ -291,7 +291,7 @@ export const sectionConfig = [
       },
       {
         name: "iconSubtitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Subtítulo do Ícone",
         value: "Poppins",
       },
@@ -387,7 +387,7 @@ export const sectionConfig = [
       },
       {
         name: "titleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título",
         value: "Roboto",
       },
@@ -405,7 +405,7 @@ export const sectionConfig = [
       },
       {
         name: "contentFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Conteúdo",
         value: "Poppins",
       },
@@ -423,7 +423,7 @@ export const sectionConfig = [
       },
       {
         name: "mapTitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título do Mapa",
         value: "Roboto",
       },
@@ -441,7 +441,7 @@ export const sectionConfig = [
       },
       {
         name: "mapSubtitleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Subtítulo do Mapa",
         value: "Poppins",
       },
