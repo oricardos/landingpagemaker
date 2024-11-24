@@ -23,17 +23,17 @@ const EditForm = ({ sectionData, onChange }) => {
     switch (section.name) {
       //todo alterar nomes
       case "Hero Lead":
-        return <HeroLeadForm form={section.form} onChange={handleChange} />;
+        return <HeroLeadForm fields={section.fields} onChange={handleChange} />;
       case "Hero":
-        return <HeroForm form={section.form} onChange={handleChange} />;
+        return <HeroForm fields={section.fields} onChange={handleChange} />;
       case "Ícones":
-        return <IconsForm form={section.form} onChange={handleChange} />;
+        return <IconsForm fields={section.fields} onChange={handleChange} />;
       case "Vídeo":
         return <VideoForm fields={section.fields} onChange={handleChange} />;
       case "Mapa":
-        return <MapForm form={section.form} onChange={handleChange} />;
+        return <MapForm fields={section.fields} onChange={handleChange} />;
       case "Footer":
-        return <FooterForm form={section.form} onChange={handleChange} />;
+        return <FooterForm fields={section.fields} onChange={handleChange} />;
 
       default:
         return null;

@@ -1,12 +1,13 @@
 import React from "react";
-import { renderFormSections } from "../../../utils/renderFormSections";
+import { renderFields } from "../../../utils/renderFields";
 import { CustomContent } from "../CustomContent";
 import FontSelector from "../FontSelector";
 import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 
-export const HeroForm = ({ form, onChange }) => {
+export const HeroForm = ({ fields, onChange }) => {
   const sectionConfig = [
+    "show",
     "sectionBackgroundColor",
     "overlayImgSrc",
     "backgroundImgSrc",
@@ -25,32 +26,31 @@ export const HeroForm = ({ form, onChange }) => {
     <div className="space-y-6">
       {/* Configuração da Seção */}
       <FormSectionWrapper title="Configuração da Seção">
-        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-        {renderFormSections(form, sectionConfig, onChange)}
+        {renderFields(fields, sectionConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Título">
-        {renderFormSections(form, titleConfig, onChange)}
+        {renderFields(fields, titleConfig, onChange)}
         <FontSelector label="Fonte" name="titleFont" onChange={onChange} />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Subtítulo">
-        {renderFormSections(form, subtitleConfig, onChange)}
+        {renderFields(fields, subtitleConfig, onChange)}
         <FontSelector label="Fonte" name="subtitleFont" onChange={onChange} />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Conteúdo">
         <CustomContent
           name="contentText"
-          value={form.find((field) => field.name === "contentText").value}
+          value={fields.find((field) => field.name === "contentText").value}
           onChange={onChange}
         />
         <FontSelector label="Fonte" name="contentFont" onChange={onChange} />
-        {renderFormSections(form, contentConfig, onChange)}
+        {renderFields(fields, contentConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Botão">
-        {renderFormSections(form, buttonConfig, onChange)}
+        {renderFields(fields, buttonConfig, onChange)}
       </FormSectionWrapper>
     </div>
   );

@@ -3,8 +3,9 @@ import { renderFormSections } from "../../../utils/renderFormSections";
 import FontSelector from "../FontSelector";
 import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
+import { renderFields } from "../../../utils/renderFields";
 
-export const HeroLeadForm = ({ form, onChange }) => {
+export const HeroLeadForm = ({ fields, onChange }) => {
   const [formState, setFormState] = useState({
     show: true,
   });
@@ -45,18 +46,12 @@ export const HeroLeadForm = ({ form, onChange }) => {
     <div className="space-y-6 mb-4">
       {/* Configuração da Seção */}
       <FormSectionWrapper title="Configuração da Seção">
-        <Checkbox
-          label="Exibir seção"
-          name="show"
-          onChange={handleFormChange}
-          value={formState.show}
-        />
-        {renderFormSections(form, sectionConfig, onChange)}
+      {renderFields(fields, sectionConfig, onChange)}
       </FormSectionWrapper>
 
       {/* Título */}
       <FormSectionWrapper title="Título">
-        {renderFormSections(form, titleConfig, onChange)}{" "}
+        {renderFields(fields, titleConfig, onChange)}{" "}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -66,7 +61,7 @@ export const HeroLeadForm = ({ form, onChange }) => {
 
       {/* Subtítulo */}
       <FormSectionWrapper title="Subtítulo">
-        {renderFormSections(form, subtitleConfig, onChange)}
+        {renderFields(fields, subtitleConfig, onChange)}
         <FontSelector
           label="Fonte do Subtítulo"
           onChange={onChange}
@@ -76,7 +71,7 @@ export const HeroLeadForm = ({ form, onChange }) => {
 
       {/* Formulário */}
       <FormSectionWrapper title="Formulário">
-        {renderFormSections(form, formConfig, onChange)}
+        {renderFields(fields, formConfig, onChange)}
       </FormSectionWrapper>
     </div>
   );

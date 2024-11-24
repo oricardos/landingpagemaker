@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import FontSelector from "../FontSelector";
-import { renderFormSections } from "../../../utils/renderFormSections";
+import { renderFields } from "../../../utils/renderFields";
 import { IconSelector } from "../IconSelector";
-import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { Input } from "../Input";
 
-export const IconsForm = ({ form, onChange }) => {
-  const sectionConfig = ["sectionBackgroundColor"];
+export const IconsForm = ({ fields, onChange }) => {
+  const sectionConfig = ["show","sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor"];
   const subtitleConfig = ["subtitleText", "subtitleColor"];
   const iconsGeneralConfig = ["iconColor", "iconBackgroundColor"];
@@ -50,12 +49,11 @@ export const IconsForm = ({ form, onChange }) => {
   return (
     <div className="space-y-6 mb-4">
       <FormSectionWrapper title="Configuração da Seção">
-        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-        {renderFormSections(form, sectionConfig, onChange)}
+        {renderFields(fields, sectionConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Título">
-        {renderFormSections(form, titleConfig, onChange)}{" "}
+        {renderFields(fields, titleConfig, onChange)}{" "}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -64,7 +62,7 @@ export const IconsForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Subtítulo">
-        {renderFormSections(form, subtitleConfig, onChange)}
+        {renderFields(fields, subtitleConfig, onChange)}
         <FontSelector
           label="Fonte do Subtítulo"
           onChange={onChange}
@@ -73,14 +71,14 @@ export const IconsForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Configurações Gerais dos ícones">
-        {renderFormSections(form, iconsGeneralConfig, onChange)}
-        {renderFormSections(form, iconsTitle, onChange)}
+        {renderFields(fields, iconsGeneralConfig, onChange)}
+        {renderFields(fields, iconsTitle, onChange)}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
           name="iconTitleFont"
         />
-        {renderFormSections(form, iconsSubTitle, onChange)}
+        {renderFields(fields, iconsSubTitle, onChange)}
         <FontSelector
           label="Fonte do Subtítulo"
           onChange={onChange}
