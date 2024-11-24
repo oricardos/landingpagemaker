@@ -334,26 +334,7 @@ export const sectionConfig = [
         ],
       },
     ],
-  },  
-  // {
-  //   name: "Vídeo",
-  //   data: {
-  //     show: true,
-  //     videoUrl:
-  //       "https://www.youtube.com/watch?v=AkUWHR_OvrY&ab_channel=SentinelieSobral",
-  //     sectionBackgroundColor: "bg-gray-100",
-  //     backgroundImgSrc: null,
-  //   },
-  //   form: [
-  //     { name: "videoUrl", type: "text", label: "URL do Vídeo" },
-  //     {
-  //       name: "sectionBackgroundColor",
-  //       type: "color",
-  //       label: "Cor de Fundo da seção",
-  //     },
-  //     { name: "backgroundImgSrc", type: "file", label: "Imagem de Fundo" },
-  //   ],
-  // },
+  },
   {
     name: "Vídeo",
     fields: [
@@ -383,84 +364,147 @@ export const sectionConfig = [
       },
     ],
   },
-  // {
-  //   name: "Mapa",
-  //   data: {
-  //     show: true,
-  //     sectionBackgroundColor: "#f6f6f6",
-
-  //     titleText: "Map Section",
-  //     titleFont: "Roboto",
-  //     titleColor: "#000",
-
-  //     contentText: "This is a map section",
-  //     contentFont: "Poppins",
-  //     contentColor: "#000",
-
-  //     mapTitleText: "",
-  //     mapTitleFont: "Roboto",
-  //     mapTitleColor: "#000",
-
-  //     mapSubtitleText: "",
-  //     mapSubtitleFont: "Poppins",
-  //     mapSubtitleColor: "#000",
-
-  //     mapEmbedUrl:
-  //       '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59978.30878222007!2d-44.029435299999996!3d-20.023438199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6bfe0599c6d59%3A0x4f5d614ebc356e9d!2sPista%20de%20skate%20-%20Vila%20ideal!5e0!3m2!1spt-BR!2sbr!4v1730815066650!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
-  //   },
-  //   form: [
-  //     {
-  //       name: "sectionBackgroundColor",
-  //       type: "color",
-  //       label: "Cor de Fundo da seção",
-  //     },
-  //     { name: "titleText", type: "text", label: "Texto" },
-  //     { name: "titleFont", type: "text", label: "Fonte do Título" },
-  //     { name: "titleColor", type: "color", label: "Cor do Título" },
-
-  //     { name: "contentText", type: "text", label: "Texto" },
-  //     { name: "contentFont", type: "text", label: "Fonte do Conteúdo" },
-  //     { name: "contentColor", type: "color", label: "Cor do Conteúdo" },
-
-  //     { name: "mapTitleText", type: "text", label: "Título" },
-  //     { name: "mapTitleFont", type: "text", label: "Fonte do Título" },
-  //     { name: "mapTitleColor", type: "color", label: "Cor do Título" },
-
-  //     { name: "mapSubtitleText", type: "text", label: "Texto" },
-  //     { name: "mapSubtitleFont", type: "text", label: "Fonte do Subtítulo" },
-  //     { name: "mapSubtitleColor", type: "color", label: "Cor do Subtítulo" },
-
-  //     { name: "mapEmbedUrl", type: "text", label: "Iframe do Mapa" },
-  //   ],
-  // },
-  // {
-  //   name: "Footer",
-  //   data: {
-  //     show: true,
-  //     logoSrc: null,
-  //     email: "email@email.com",
-  //     whatsappLink: "",
-  //     instagramLink: "",
-  //     iconTextColor: "text-gray-900",
-  //     sectionBackgroundColor: "bg-gray-100",
-  //   },
-  //   form: [
-  //     {
-  //       name: "show",
-  //       label: "Exibir seção",
-  //       type: "checkbox",
-  //       value: "true",
-  //     },
-  //     { name: "logoSrc", type: "file", label: "Logo" },
-  //     { name: "email", type: "text", label: "E-mail" },
-  //     { name: "whatsappLink", type: "text", label: "Link do WhatsApp" },
-  //     { name: "instagramLink", type: "text", label: "Link do Instagram" },
-  //     { name: "iconTextColor", type: "color", label: "Cor dos ícones" },
-  //     {
-  //       name: "sectionBackgroundColor",
-  //       type: "color",
-  //       label: "Cor de Fundo da seção",
-  //     },
-  //   ],
-  // },
+  {
+    name: "Mapa",
+    fields: [
+      {
+        name: "show",
+        type: "checkbox",
+        label: "Exibir seção",
+        value: true,
+      },
+      {
+        name: "sectionBackgroundColor",
+        type: "color",
+        label: "Cor de Fundo da Seção",
+        value: "#f6f6f6",
+      },
+      {
+        name: "titleText",
+        type: "text",
+        label: "Texto do Título",
+        value: "Map Section",
+      },
+      {
+        name: "titleFont",
+        type: "text",
+        label: "Fonte do Título",
+        value: "Roboto",
+      },
+      {
+        name: "titleColor",
+        type: "color",
+        label: "Cor do Título",
+        value: "#000",
+      },
+      {
+        name: "contentText",
+        type: "text",
+        label: "Texto do Conteúdo",
+        value: "This is a map section",
+      },
+      {
+        name: "contentFont",
+        type: "text",
+        label: "Fonte do Conteúdo",
+        value: "Poppins",
+      },
+      {
+        name: "contentColor",
+        type: "color",
+        label: "Cor do Conteúdo",
+        value: "#000",
+      },
+      {
+        name: "mapTitleText",
+        type: "text",
+        label: "Texto do Título do Mapa",
+        value: "",
+      },
+      {
+        name: "mapTitleFont",
+        type: "text",
+        label: "Fonte do Título do Mapa",
+        value: "Roboto",
+      },
+      {
+        name: "mapTitleColor",
+        type: "color",
+        label: "Cor do Título do Mapa",
+        value: "#000",
+      },
+      {
+        name: "mapSubtitleText",
+        type: "text",
+        label: "Texto do Subtítulo do Mapa",
+        value: "",
+      },
+      {
+        name: "mapSubtitleFont",
+        type: "text",
+        label: "Fonte do Subtítulo do Mapa",
+        value: "Poppins",
+      },
+      {
+        name: "mapSubtitleColor",
+        type: "color",
+        label: "Cor do Subtítulo do Mapa",
+        value: "#000",
+      },
+      {
+        name: "mapEmbedUrl",
+        type: "text",
+        label: "URL de Embed do Mapa",
+        value:
+          '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59978.30878222007!2d-44.029435299999996!3d-20.023438199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6bfe0599c6d59%3A0x4f5d614ebc356e9d!2sPista%20de%20skate%20-%20Vila%20ideal!5e0!3m2!1spt-BR!2sbr!4v1730815066650!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+      },
+    ],
+  },  
+  {
+    name: "Footer",
+    fields: [
+      {
+        name: "show",
+        type: "checkbox",
+        label: "Exibir seção",
+        value: true,
+      },
+      {
+        name: "logoSrc",
+        type: "file",
+        label: "Logo",
+        value: null,
+      },
+      {
+        name: "email",
+        type: "text",
+        label: "E-mail",
+        value: "email@email.com",
+      },
+      {
+        name: "whatsappLink",
+        type: "text",
+        label: "Link do WhatsApp",
+        value: "",
+      },
+      {
+        name: "instagramLink",
+        type: "text",
+        label: "Link do Instagram",
+        value: "",
+      },
+      {
+        name: "iconTextColor",
+        type: "color",
+        label: "Cor dos Ícones",
+        value: "text-gray-900",
+      },
+      {
+        name: "sectionBackgroundColor",
+        type: "color",
+        label: "Cor de Fundo da Seção",
+        value: "bg-gray-100",
+      },
+    ],
+  }  
 ];

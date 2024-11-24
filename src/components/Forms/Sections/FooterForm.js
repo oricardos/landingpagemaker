@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { renderFormSections } from "../../../utils/renderFormSections";
+import { renderFields } from "../../../utils/renderFields";
 import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 
-export const FooterForm = ({ form, onChange }) => {
+export const FooterForm = ({ fields, onChange }) => {
   const [formState, setFormState] = useState({
     show: true,
   });
@@ -34,11 +34,11 @@ export const FooterForm = ({ form, onChange }) => {
           onChange={handleFormChange}
           value={formState.show}
         />
-        {renderFormSections(form, sectionConfig, onChange)}
+        {renderFields(fields, sectionConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Configuração de Redes Sociais">
-        {renderFormSections(form, socialConfig, onChange)}
+        {renderFields(fields, socialConfig, onChange)}
       </FormSectionWrapper>
     </div>
   );

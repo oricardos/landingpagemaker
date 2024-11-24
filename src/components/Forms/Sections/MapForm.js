@@ -1,11 +1,10 @@
 import React from "react";
-import { renderFormSections } from "../../../utils/renderFormSections";
+import { renderFields } from "../../../utils/renderFields";
 import FontSelector from "../FontSelector";
-import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 
-export const MapForm = ({ form, onChange }) => {
-  const sectionConfig = ["sectionBackgroundColor"];
+export const MapForm = ({ fields, onChange }) => {
+  const sectionConfig = ["show", "sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor"];
   const contentConfig = ["contentText", "contentColor"];
   const mapTitle = ["mapTitleText", "mapTitleColor"];
@@ -14,12 +13,11 @@ export const MapForm = ({ form, onChange }) => {
   return (
     <div className="space-y-6">
       <FormSectionWrapper title="Configuração da Seção">
-        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
-        {renderFormSections(form, sectionConfig, onChange)}
+        {renderFields(fields, sectionConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Título">
-        {renderFormSections(form, titleConfig, onChange)}
+        {renderFields(fields, titleConfig, onChange)}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -28,7 +26,7 @@ export const MapForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Conteúdo">
-        {renderFormSections(form, contentConfig, onChange)}
+        {renderFields(fields, contentConfig, onChange)}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -37,7 +35,7 @@ export const MapForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Titulo do mapa">
-        {renderFormSections(form, mapTitle, onChange)}
+        {renderFields(fields, mapTitle, onChange)}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -46,7 +44,7 @@ export const MapForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Subtítulo do mapa">
-        {renderFormSections(form, mapSubTitle, onChange)}
+        {renderFields(fields, mapSubTitle, onChange)}
         <FontSelector
           label="Fonte do Título"
           onChange={onChange}
@@ -55,7 +53,7 @@ export const MapForm = ({ form, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Mapa">
-        {renderFormSections(form, mapEmbedUrl, onChange)}
+        {renderFields(fields, mapEmbedUrl, onChange)}
       </FormSectionWrapper>
     </div>
   );
