@@ -5,14 +5,14 @@ import { FormSectionWrapper } from "../FormSectionWrapper";
 
 export const FooterForm = ({ form, onChange }) => {
   const [formState, setFormState] = useState({
-    show: true, // Valor inicial
+    show: true,
   });
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({
       ...prevState,
-      [name]: value, // Atualiza o campo correspondente
+      [name]: value,
     }));
 
     onChange({

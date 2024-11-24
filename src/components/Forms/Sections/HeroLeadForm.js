@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { renderFormSections } from "../../../utils/renderFormSections";
 import FontSelector from "../FontSelector";
 import { Checkbox } from "../Checkbox";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 
 export const HeroLeadForm = ({ form, onChange }) => {
+  const [formState, setFormState] = useState({
+    show: true,
+  });
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+
+    onChange({
+      target: {
+        name: name,
+        value: value,
+      },
+    });
+  };
+
   const sectionConfig = [
     "logoSrc",
     "backgroundImgSrc",
@@ -16,7 +35,6 @@ export const HeroLeadForm = ({ form, onChange }) => {
     "formPlaceholderName",
     "formPlaceholderPhone",
     "formPlaceholderEmail",
-    // "formTextColor",
     "buttonText",
     "buttonColor",
     "buttonTextColor",
@@ -27,7 +45,12 @@ export const HeroLeadForm = ({ form, onChange }) => {
     <div className="space-y-6 mb-4">
       {/* Configuração da Seção */}
       <FormSectionWrapper title="Configuração da Seção">
-        <Checkbox label="Exibir seção" name="show" onChange={onChange} />
+        <Checkbox
+          label="Exibir seção"
+          name="show"
+          onChange={handleFormChange}
+          value={formState.show}
+        />
         {renderFormSections(form, sectionConfig, onChange)}
       </FormSectionWrapper>
 

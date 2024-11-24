@@ -16,18 +16,6 @@ const EditForm = ({ sectionData, onChange }) => {
       newValue = URL.createObjectURL(files[0]);
     }
 
-    // if (name === "icon" || name === "iconTitle" || name === "iconSubtitle") {
-    //   newValue = sectionData.data.icons.map((item, index) => {
-    //     // Substitua `targetIndex` pelo índice ou identificador exclusivo do item que está sendo atualizado
-    //     if (index === targetIndex) {
-    //       return { ...item, [name]: value }; // Atualiza apenas a propriedade específica
-    //     }
-    //     return item; // Mantém os demais itens inalterados;
-    //   });
-    // }
-
-    console.log(newValue);
-
     onChange(name, newValue);
   };
 
@@ -41,7 +29,7 @@ const EditForm = ({ sectionData, onChange }) => {
       case "Ícones":
         return <IconsForm form={section.form} onChange={handleChange} />;
       case "Vídeo":
-        return <VideoForm form={section.form} onChange={handleChange} />;
+        return <VideoForm fields={section.fields} onChange={handleChange} />;
       case "Mapa":
         return <MapForm form={section.form} onChange={handleChange} />;
       case "Footer":

@@ -45,23 +45,48 @@ export const PageEditor = () => {
     );
   };
 
-  const handleEditSection = (name, updatedData) => {
+  // const handleEditSection = (name, updatedData) => {
+  //   setSections((prevSections) =>
+  //     prevSections.map((section) =>
+  //       section.name === name
+  //         ? { ...section, data: { ...section.data, ...updatedData } }
+  //         : section
+  //     )
+  //   );
+  // };
+
+  const handleEditSection = (name, updatedField) => {
     setSections((prevSections) =>
       prevSections.map((section) =>
         section.name === name
-          ? { ...section, data: { ...section.data, ...updatedData } }
+          ? {
+              ...section,
+              fields: section.fields.map((field) =>
+                field.name === updatedField.name
+                  ? { ...field, value: updatedField.value }
+                  : field
+              ),
+            }
           : section
       )
     );
   };
 
   const renderSection = (section) => {
+
+    // transforma os fields em um objeto 
+
+    const data = section?.fields.reduce((acc, field) => {
+      acc[field.name] = field.value;
+      return acc;
+    }, {});
+
     switch (section.name) {
       case "Hero Lead":
         return (
           <HeroLeadSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -71,7 +96,7 @@ export const PageEditor = () => {
         return (
           <HeroSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -81,7 +106,7 @@ export const PageEditor = () => {
         return (
           <IconsSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -91,7 +116,7 @@ export const PageEditor = () => {
         return (
           <VideoSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -101,7 +126,7 @@ export const PageEditor = () => {
         return (
           <MapSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -111,7 +136,7 @@ export const PageEditor = () => {
         return (
           <FooterSection
             previewDevice={previewDevice}
-            data={section.data}
+            data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
             }
@@ -133,7 +158,11 @@ export const PageEditor = () => {
     const fonts = new Set();
 
     sections.forEach((section) => {
-      const data = section.data;
+      const data = section?.fields.reduce((acc, field) => {
+        acc[field.name] = field.value;
+        return acc;
+      }, {});
+      // const data = section.data;
       const fontKeys = Object.keys(data).filter((key) => key.includes("Font"));
       fontKeys.forEach((fontKey) => {
         fonts.add(data[fontKey]); // Adiciona as fontes ao Set (garantindo unicidade)
@@ -147,7 +176,7 @@ export const PageEditor = () => {
   // gera a pagina de preview
   const handleOpenNewTab = () => {
     const newTab = window.open("", "_blank");
-  
+
     const htmlContent = `
       <!DOCTYPE html>
       <html lang="en">
@@ -169,16 +198,16 @@ export const PageEditor = () => {
       </body>
       </html>
     `;
-  
+
     // Inserir o conteúdo HTML na nova aba
     newTab.document.open();
     newTab.document.write(htmlContent);
     newTab.document.close();
-  
+
     // Aguardar o carregamento da nova aba
     newTab.onload = () => {
       const rootElement = newTab.document.getElementById("root");
-  
+
       // Renderizar o React na nova aba
       const NewTabContent = () => (
         <div>
@@ -187,7 +216,7 @@ export const PageEditor = () => {
           ))}
         </div>
       );
-  
+
       const root = ReactDOM.createRoot(rootElement);
       root.render(<NewTabContent />);
     };
@@ -256,18 +285,29 @@ export const PageEditor = () => {
                     </Tab>
                   </TabList>
                   <TabPanels>
-                    <TabPanel>Templates</TabPanel>
+                    <TabPanel value="Template">Templates</TabPanel>
                     <TabPanel
-                      value="Template"
+                      value="Conteudo"
                       className="mt-6 space-y-6 transition-all"
                     >
-                      <EditPanel
+                      {/* <EditPanel
                         allSections={sections}
                         setSelectedSection={setSelectedSection}
                         selectedSection={selectedSection}
                         onChange={(field, value) =>
                           handleEditSection(selectedSection.name, {
                             [field]: value,
+                          })
+                        }
+                      /> */}
+                      <EditPanel
+                        allSections={sections}
+                        setSelectedSection={setSelectedSection}
+                        selectedSection={selectedSection}
+                        onChange={(name, value) =>
+                          handleEditSection(selectedSection.name, {
+                            name,
+                            value,
                           })
                         }
                       />

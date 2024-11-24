@@ -12,6 +12,7 @@ export const renderFormSections = (form, fields, onChange) => {
             type={field.type}
             name={field.name}
             onChange={onChange}
+            value={field.value}
           />
         </div>
       )

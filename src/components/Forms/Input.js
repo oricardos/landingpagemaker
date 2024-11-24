@@ -1,4 +1,5 @@
 import React from "react";
+import { Checkbox } from "./Checkbox";
 
 export const Input = ({
   id,
@@ -23,6 +24,7 @@ export const Input = ({
           placeholder={placeholder}
           defaultValue={value}
           onChange={onChange}
+          value={value}
           className={`block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm/6 ${className}`}
         />
       </div>
