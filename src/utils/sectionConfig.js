@@ -34,7 +34,7 @@ export const sectionConfig = [
       },
       {
         name: "titleFont",
-        type: "text",
+        type: "font",
         label: "Fonte do Título",
         value: "Roboto",
       },

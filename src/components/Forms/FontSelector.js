@@ -60,11 +60,11 @@ const FontSelector = ({ label, onChange, name }) => {
   const styles = {
     option: (provided, state) => ({
       ...provided,
-      fontFamily: `"${state.data.label}", sans-serif`, // Aplica a fonte da opção
+      fontFamily: `"${state.data.label}", sans-serif`, 
     }),
     singleValue: (provided, state) => ({
       ...provided,
-      fontFamily: `"${state.data.label}", sans-serif`, // Aplica a fonte na opção selecionada
+      fontFamily: `"${state.data.label}", sans-serif`, 
     }),
   };
 

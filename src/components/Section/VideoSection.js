@@ -2,7 +2,6 @@ import React from "react";
 import ReactPlayer from "react-player/youtube";
 
 export const VideoSection = ({ data, onUpdate }) => {
-  console.log(data);
   return (
     <>
       {data.show && (
