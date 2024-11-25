@@ -24,7 +24,7 @@ export const sectionConfig = [
         name: "sectionBackgroundColor",
         type: "color",
         label: "Cor de Fundo da seção",
-        value: "#3B82F6",
+        value: "#f6f6f6",
       },
       {
         name: "titleText",
@@ -263,7 +263,7 @@ export const sectionConfig = [
         name: "sectionBackgroundColor",
         type: "color",
         label: "Cor de Fundo da seção",
-        value: "#fff",
+        value: "#f6f6f6",
       },
       {
         name: "iconColor",
@@ -348,7 +348,7 @@ export const sectionConfig = [
         name: "sectionBackgroundColor",
         type: "color",
         label: "Cor de Fundo",
-        value: "#f00",
+        value: "#fff",
       },
       {
         name: "backgroundImgSrc",

@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
+import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
+import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 
 export const MapSection = ({ data, onUpdate }) => {
+  const previewDevice = usePreviewDevice();
+  const sectionRef = useRef(null);
   const isMobile = window.innerWidth < 768;
   const map = data.mapEmbedUrl;
   const renderMap = isMobile
     ? map.replace(/width="[^"]*"/, 'width="100%"')
     : map;
+
   return (
     <>
       {data.show && (
         <section
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
+          ref={sectionRef}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-6">
+          {/* <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-6"> */}
+          <div
+            className={getResponsiveClasses("max-w-7xl mx-auto flex", {
+              mobile: "flex-col",
+              desktop: "md:flex-row md:space-x-6",
+            }, previewDevice)}
+          >
             {/* Bloco de Texto */}
             <div className={`flex-1 mb-6 md:mb-0`}>
               {data.titleText && (

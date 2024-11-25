@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { renderFields } from "../../../utils/renderFields";
 
@@ -31,7 +31,7 @@ export const HeroLeadForm = ({ fields, onChange }) => {
 
       {/* Título */}
       <FormSectionWrapper title="Título">
-        {renderFields(fields, titleConfig, onChange)}{" "}
+        {renderFields(fields, titleConfig, onChange)}
       </FormSectionWrapper>
 
       {/* Subtítulo */}

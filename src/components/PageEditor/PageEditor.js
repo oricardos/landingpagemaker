@@ -15,6 +15,7 @@ import { FooterSection } from "../Section/FooterSection";
 import { sectionConfig } from "../../utils/sectionConfig";
 import { VideoSection } from "../Section/VideoSection";
 import { MapSection } from "../Section/MapSection";
+import { PreviewDeviceProvider } from "../../contexts/PreviewDeviceContext";
 
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
@@ -308,16 +309,6 @@ export const PageEditor = () => {
                       value="Conteudo"
                       className="mt-6 space-y-6 transition-all"
                     >
-                      {/* <EditPanel
-                        allSections={sections}
-                        setSelectedSection={setSelectedSection}
-                        selectedSection={selectedSection}
-                        onChange={(field, value) =>
-                          handleEditSection(selectedSection.name, {
-                            [field]: value,
-                          })
-                        }
-                      /> */}
                       <EditPanel
                         allSections={sections}
                         setSelectedSection={setSelectedSection}
@@ -376,31 +367,33 @@ export const PageEditor = () => {
             </div>
 
             {/* Preview Panel */}
-            <div className="space-y-4 w-full ml-[22rem]">
-              <div
-                className={`border rounded-lg overflow-hidden ${
-                  previewDevice === "mobile"
-                    ? "w-full max-w-[430px] mx-auto"
-                    : "w-full"
-                }`}
-              >
-                <div className="bg-white overflow-y-auto">
-                  {/* Placeholder for actual page preview */}
-                  <div className="w-full h-full flex">
-                    <div className="w-full">
-                      {sections.map((section, index) => (
-                        <div
-                          key={index}
-                          onClick={() => setSelectedSection(section)}
-                        >
-                          {renderSection(section)}
-                        </div>
-                      ))}
+            <PreviewDeviceProvider device={previewDevice}>
+              <div className="space-y-4 w-full ml-[22rem]">
+                <div
+                  className={`border rounded-lg overflow-hidden ${
+                    previewDevice === "mobile"
+                      ? "w-full max-w-[430px] mx-auto"
+                      : "w-full"
+                  }`}
+                >
+                  <div className="bg-white overflow-y-auto">
+                    {/* Placeholder for actual page preview */}
+                    <div className="w-full h-full flex">
+                      <div className="w-full">
+                        {sections.map((section, index) => (
+                          <div
+                            key={index}
+                            onClick={() => setSelectedSection(section)}
+                          >
+                            {renderSection(section)}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </PreviewDeviceProvider>
           </div>
         </div>
       </main>
