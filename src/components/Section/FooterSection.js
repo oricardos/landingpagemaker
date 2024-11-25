@@ -1,7 +1,10 @@
 import React from "react";
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
+import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 
 export const FooterSection = ({ data, onUpdate }) => {
+  const previewDevice = usePreviewDevice();
   return (
     <>
       {data.show && (
@@ -9,13 +12,26 @@ export const FooterSection = ({ data, onUpdate }) => {
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:gap-20 md:flex-row md:justify-start items-start space-y-4 md:space-y-0">
+          <div
+            className={getResponsiveClasses(
+              "max-w-7xl mx-auto flex items-start gap-4",
+              {
+                mobile: "flex-col",
+                desktop: "md:gap-20 md:flex-row md:justify-start  md:space-y-0",
+              },
+              previewDevice
+            )}
+          >
             {/* Logomarca */}
             {data.logoSrc && (
               <img
                 src={data.logoSrc}
                 alt="Logomarca"
-                className="w-32 h-auto mb-4 md:mb-0"
+                className={getResponsiveClasses(
+                  "w-32 h-auto mb-4",
+                  { desktop: "md:mb-0" },
+                  previewDevice
+                )}
               />
             )}
 

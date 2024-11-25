@@ -33,7 +33,14 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   aria-hidden="true"
-                  className="absolute inset-y-0 right-0 hidden h-full w-80 translate-x-1/2 transform lg:block"
+                  // className="absolute inset-y-0 right-0 hidden h-full w-80 translate-x-1/2 transform lg:block"
+                  className={getResponsiveClasses(
+                    "absolute inset-y-0 right-0 h-full w-80 translate-x-1/2 transform",
+                    {
+                      mobile: "hidden",
+                      desktop: "lg:block" },
+                    previewDevice
+                  )}
                 >
                   <polygon
                     fill={data.sectionBackgroundColor || "#fff"}

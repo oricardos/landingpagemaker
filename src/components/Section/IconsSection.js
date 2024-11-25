@@ -1,11 +1,12 @@
 import React from "react";
 import * as HeroiconsSolid from "@heroicons/react/20/solid";
+import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
+import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 
 const RenderIcon = ({ icon, iconColor, index }) => {
-  
   // busca o icone
   const IconComponent = HeroiconsSolid[icon];
-  
+
   // valida se existe
   if (!IconComponent) {
     console.warn(`Ícone "${icon}" não encontrado em lucide-react.`);
@@ -20,6 +21,7 @@ const RenderIcon = ({ icon, iconColor, index }) => {
 };
 
 export const IconsSection = ({ data, onUpdate }) => {
+  const previewDevice = usePreviewDevice();
   return (
     <>
       {data.show && (
@@ -46,7 +48,14 @@ export const IconsSection = ({ data, onUpdate }) => {
               </h3>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              {/* <dl className=" "> */}
+              <dl
+                className={getResponsiveClasses(
+                  "grid max-w-xl grid-cols-1 gap-x-8 gap-y-10",
+                  { desktop: "lg:max-w-none lg:grid-cols-2 lg:gap-y-16" },
+                  previewDevice
+                )}
+              >
                 {data.icons.map((feature, index) => {
                   return (
                     <div key={index} className="relative pl-16">
