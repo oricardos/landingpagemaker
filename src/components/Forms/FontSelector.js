@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { fetchGoogleFonts } from "../../utils/fetchGoogleFonts";
 
-const FontSelector = ({ label, onChange, name }) => {
+const FontSelector = ({ label, onChange, name }) => {  
   const [fonts, setFonts] = useState([]);
   const [selectedFont, setSelectedFont] = useState("Roboto");
   const [loading, setLoading] = useState(true);
@@ -70,6 +70,9 @@ const FontSelector = ({ label, onChange, name }) => {
 
   return (
     <div>
+      <label className="block text-sm/6 font-medium text-gray-900">
+        {label}
+      </label>
       <Select
         label={label}
         options={fonts}

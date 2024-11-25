@@ -8,10 +8,10 @@ import { Input } from "../Input";
 export const IconsForm = ({ fields, onChange }) => {
   const sectionConfig = ["show","sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor", "titleFont"];
-  const subtitleConfig = ["subtitleText", "subtitleColor"];
+  const subtitleConfig = ["subtitleText", "subtitleColor", "subtitleFont"];
   const iconsGeneralConfig = ["iconColor", "iconBackgroundColor"];
 
-  const iconsTitle = ["iconTitleColor"];
+  const iconsTitle = ["iconTextFont", "iconTitleColor"];
   const iconsSubTitle = ["iconSubtitleColor"];
 
   // const iconsConfig = ["iconTitle", "iconSubtitle"];
@@ -58,27 +58,12 @@ export const IconsForm = ({ fields, onChange }) => {
 
       <FormSectionWrapper title="Subtítulo">
         {renderFields(fields, subtitleConfig, onChange)}
-        <FontSelector
-          label="Fonte do Subtítulo"
-          onChange={onChange}
-          name="subtitleFont"
-        />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Configurações Gerais dos ícones">
         {renderFields(fields, iconsGeneralConfig, onChange)}
         {renderFields(fields, iconsTitle, onChange)}
-        <FontSelector
-          label="Fonte do Título"
-          onChange={onChange}
-          name="iconTitleFont"
-        />
         {renderFields(fields, iconsSubTitle, onChange)}
-        <FontSelector
-          label="Fonte do Subtítulo"
-          onChange={onChange}
-          name="iconSubtitleFont"
-        />
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Ícones">

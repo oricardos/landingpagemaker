@@ -15,12 +15,12 @@ export const MapSection = ({ data, onUpdate }) => {
             {/* Bloco de Texto */}
             <div className={`flex-1 mb-6 md:mb-0`}>
               {data.titleText && (
-                <h3
+                <h2
                   style={{ color: data.titleColor, fontFamily: data.titleFont }}
-                  className="text-xl font-semibold mb-4"
+                  className="text-2xl font-semibold mb-4"
                 >
                   {data.titleText}
-                </h3>
+                </h2>
               )}
               <p
                 style={{

@@ -278,9 +278,9 @@ export const sectionConfig = [
         value: "#3B82F6",
       },
       {
-        name: "iconTitleFont",
+        name: "iconTextFont",
         type: "font",
-        label: "Fonte do Título do Ícone",
+        label: "Fonte dos textos",
         value: "Roboto",
       },
       {
@@ -288,12 +288,6 @@ export const sectionConfig = [
         type: "color",
         label: "Cor do Título do Ícone",
         value: "#000",
-      },
-      {
-        name: "iconSubtitleFont",
-        type: "font",
-        label: "Fonte do Subtítulo do Ícone",
-        value: "Poppins",
       },
       {
         name: "iconSubtitleColor",

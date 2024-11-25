@@ -53,7 +53,7 @@ export const IconsSection = ({ data, onUpdate }) => {
                       <dt
                         style={{
                           color: data.iconTitleColor,
-                          fontFamily: data.iconTitleFont,
+                          fontFamily: data.iconTextFont,
                         }}
                         className="text-base/7 font-semibold"
                       >
@@ -77,7 +77,7 @@ export const IconsSection = ({ data, onUpdate }) => {
                       <dd
                         style={{
                           color: data.iconSubtitleColor,
-                          fontFamily: data.iconSubtitleFont,
+                          fontFamily: data.iconTextFont,
                         }}
                         className="mt-2 text-base/7"
                       >

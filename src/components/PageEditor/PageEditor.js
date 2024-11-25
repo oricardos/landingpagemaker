@@ -177,6 +177,12 @@ export const PageEditor = () => {
   const handleOpenNewTab = () => {
     const newTab = window.open("", "_blank");
 
+    const googleFontsLink = `
+    <link href="https://fonts.googleapis.com/css2?${usedFonts
+      .map((font) => `family=${font}`)
+      .join("&")}&display=swap" rel="stylesheet">
+  `;
+
     const htmlContent = `
       <!DOCTYPE html>
       <html lang="en">
@@ -185,6 +191,7 @@ export const PageEditor = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Preview</title>
         <script src="https://cdn.tailwindcss.com"></script>
+         ${googleFontsLink}
         <style>
           * {
             margin: 0;
