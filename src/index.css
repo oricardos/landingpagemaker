@@ -18,9 +18,13 @@
   position: relative; /* Evita bugs de menu */
 }
 
-.ql-editor {
+.ql-editor.content {
   height: auto!important;
   padding: 12px 0!important;
+}
+
+.ql-editor.content a {
+  text-decoration: underline!important;
 }
 
 .react-quill-container .ql-toolbar {

@@ -229,7 +229,7 @@ export const PageEditor = () => {
                   title="Visualização em desktop"
                   className={`${
                     previewDevice === "desktop"
-                      ? "bg-gray-400 text-white"
+                      ? "bg-gray-200 text-black"
                       : "bg-white text-gray-900"
                   } px-2 py-1 rounded`}
                   size="icon"
@@ -243,7 +243,7 @@ export const PageEditor = () => {
                   title="Visualização em mobile"
                   className={`${
                     previewDevice === "mobile"
-                      ? "bg-gray-400 text-white"
+                      ? "bg-gray-200 text-black"
                       : "bg-white text-gray-900"
                   } px-2 py-1 rounded`}
                   size="icon"

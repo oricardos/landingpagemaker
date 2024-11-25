@@ -137,7 +137,7 @@ export const sectionConfig = [
         name: "titleColor",
         type: "color",
         label: "Cor do Título",
-        value: "text-black",
+        value: "#121212",
       },
       {
         name: "subtitleText",
@@ -155,7 +155,7 @@ export const sectionConfig = [
         name: "subtitleColor",
         type: "color",
         label: "Cor do Subtítulo",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "contentText",
@@ -174,7 +174,7 @@ export const sectionConfig = [
         name: "contentColor",
         type: "color",
         label: "Cor do Conteúdo",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "buttonText",
@@ -204,7 +204,7 @@ export const sectionConfig = [
         name: "sectionBackgroundColor",
         type: "color",
         label: "Cor de Fundo da seção",
-        value: "bg-blue-500",
+        value: "#fff",
       },
       {
         name: "overlayImgSrc",
@@ -257,7 +257,7 @@ export const sectionConfig = [
         name: "subtitleColor",
         type: "color",
         label: "Cor do Subtítulo",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "sectionBackgroundColor",
@@ -287,13 +287,13 @@ export const sectionConfig = [
         name: "iconTitleColor",
         type: "color",
         label: "Cor do Título do Ícone",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "iconSubtitleColor",
         type: "color",
         label: "Cor do Subtítulo do Ícone",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "icons",
@@ -389,7 +389,7 @@ export const sectionConfig = [
         name: "titleColor",
         type: "color",
         label: "Cor do Título",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "contentText",
@@ -407,7 +407,7 @@ export const sectionConfig = [
         name: "contentColor",
         type: "color",
         label: "Cor do Conteúdo",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "mapTitleText",
@@ -425,7 +425,7 @@ export const sectionConfig = [
         name: "mapTitleColor",
         type: "color",
         label: "Cor do Título do Mapa",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "mapSubtitleText",
@@ -443,7 +443,7 @@ export const sectionConfig = [
         name: "mapSubtitleColor",
         type: "color",
         label: "Cor do Subtítulo do Mapa",
-        value: "#000",
+        value: "#121212",
       },
       {
         name: "mapEmbedUrl",
@@ -470,6 +470,13 @@ export const sectionConfig = [
         value: null,
       },
       {
+        name: "sectionBackgroundColor",
+        type: "color",
+        label: "Cor de Fundo da Seção",
+        value: "#fff",
+      },
+      
+      {
         name: "email",
         type: "text",
         label: "E-mail",
@@ -491,13 +498,7 @@ export const sectionConfig = [
         name: "iconTextColor",
         type: "color",
         label: "Cor dos Ícones",
-        value: "text-gray-900",
-      },
-      {
-        name: "sectionBackgroundColor",
-        type: "color",
-        label: "Cor de Fundo da Seção",
-        value: "bg-gray-100",
+        value: "#121212",
       },
     ],
   }  

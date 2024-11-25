@@ -30,13 +30,13 @@ export const MapSection = ({ data, onUpdate }) => {
               {data.titleText && (
                 <h2
                   style={{ color: data.titleColor, fontFamily: data.titleFont }}
-                  className="text-2xl font-semibold mb-4"
+                  className="text-2xl font-semibold mb-1"
                 >
                   {data.titleText}
                 </h2>
               )}
               <div
-                className="ql-editor"
+                className="ql-editor content"
                 style={{
                   color: data.contentColor,
                   fontFamily: data.contentFont,
@@ -57,10 +57,10 @@ export const MapSection = ({ data, onUpdate }) => {
                 {data.mapTitleText}
               </h5>
               <div
-                className="ql-editor"
+                className="ql-editor content"
                 style={{
-                  color: data.contentColor,
-                  fontFamily: data.contentFont,
+                  color: data.mapSubtitleColor,
+                  fontFamily: data.mapSubtitleFont,
                 }}
                 dangerouslySetInnerHTML={{ __html: data.mapSubtitleText }}
               />

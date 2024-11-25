@@ -94,7 +94,7 @@ export const HeroSection = ({ data, onUpdate }) => {
                     {data.subtitleText}
                   </h3>
                   <div
-                    className="ql-editor"
+                    className="ql-editor content"
                     style={{
                       color: data.contentColor,
                       fontFamily: data.contentFont,
