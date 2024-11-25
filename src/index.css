@@ -20,6 +20,7 @@
 
 .ql-editor {
   height: auto!important;
+  padding: 12px 0!important;
 }
 
 .react-quill-container .ql-toolbar {

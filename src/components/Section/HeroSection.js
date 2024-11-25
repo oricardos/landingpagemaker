@@ -1,57 +1,12 @@
 import React from "react";
+import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
+import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 
 export const HeroSection = ({ data, onUpdate }) => {
+  const previewDevice = usePreviewDevice();
   return (
     <>
       {data.show && (
-        // <section
-        //   className={`flex gap-8 items-center justify-center p-8 ${data.sectionBackgroundColor}`}
-        //   style={{
-        //     backgroundColor: data.backgroundColor,
-        //     backgroundImage: data.backgroundImgSrc
-        //       ? `url(${data.backgroundImgSrc})`
-        //       : undefined,
-        //     backgroundSize: "cover",
-        //   }}
-        // >
-        //   {/* Imagem sobreposta do lado esquerdo */}
-        //   {data.overlayImgSrc && (
-        //     <img
-        //       src={data.overlayImgSrc}
-        //       alt="Imagem de sobreposição"
-        //       className="object-cover"
-        //       style={{ width: "33%" }}
-        //     />
-        //   )}
-
-        //   {/* Bloco de texto */}
-        //   <div className="w-2/4 text-left space-y-4 relative z-10">
-        //     {/* Subtítulo */}
-        //     <h3 className={`${data.subtitleFont} ${data.subtitleColor}`}>
-        //       {data.subtitleText}
-        //     </h3>
-
-        //     {/* Título */}
-        //     <h1 className={`${data.titleFont} ${data.titleColor}`}>
-        //       {data.titleText}
-        //     </h1>
-
-        //     {/* Texto descritivo */}
-        //     <p className={`${data.contentFont} ${data.contentColor} mt-4`}>
-        //       {data.contentText}
-        //     </p>
-
-        //     {/* Botão call-to-action */}
-        //     <a
-        //     style={{ backgroundColor: data.buttonColor, color: data.buttonTextColor }}
-        //       href={data.buttonLink}
-        //       className={`inline-block mt-6 py-2 px-4 rounded`}
-        //     >
-        //       {data.buttonText}
-        //     </a>
-        //   </div>
-        // </section>
-
         <section>
           <div
             style={{
@@ -59,24 +14,73 @@ export const HeroSection = ({ data, onUpdate }) => {
             }}
             className="relative"
           >
-            <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end items-center">
-              <div className="lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:right-1/2 xl:w-1/2">
-                <div className="relative lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
+            <div
+              className={getResponsiveClasses(
+                "mx-auto max-w-7xl items-center flex gap-4",
+                {
+                  mobile: "sm:flex-col",
+                  desktop: "lg:flex lg:justify-between lg:px-8 xl:justify-end ",
+                },
+                previewDevice
+              )}
+            >
+              <div
+                className={getResponsiveClasses(
+                  "",
+                  {
+                    desktop:
+                      "lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:right-1/2 xl:w-1/2",
+                  },
+                  previewDevice
+                )}
+              >
+                <div
+                  className={getResponsiveClasses(
+                    "relative",
+                    {
+                      desktop: "lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0",
+                    },
+                    previewDevice
+                  )}
+                >
                   <img
-                    src={data.overlayImgSrc || "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"}
+                    src={
+                      data.overlayImgSrc ||
+                      "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+                    }
                     alt="Imagem de sobreposição"
                     className="object-cover"
                   />
                 </div>
               </div>
-              <div className="px-6 lg:contents">
-                <div className="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2">
+
+              <div
+                className={getResponsiveClasses(
+                  "",
+                  { mobile: "sm:mx-4", desktop: "lg:contents" },
+                  previewDevice
+                )}
+              >
+                <div
+                  className={getResponsiveClasses(
+                    "mx-auto max-w-2xl pb-24 pt-16",
+                    {
+                      mobile: "sm:pb-32 sm:pt-20",
+                      desktop:
+                        "lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2",
+                    }
+                  )}
+                >
                   <h1
                     style={{
                       color: data.titleColor,
                       fontFamily: data.titleFont,
                     }}
-                    className="mt-2 text-pretty text-4xl font-semibold tracking-tight sm:text-5xl"
+                    className={getResponsiveClasses(
+                      "mt-2 text-pretty text-4xl font-semibold tracking-tight",
+                      { mobile: "sm:text-5xl" },
+                      previewDevice
+                    )}
                   >
                     {data.titleText}
                   </h1>
