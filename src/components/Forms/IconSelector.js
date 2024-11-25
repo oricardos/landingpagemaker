@@ -11,7 +11,6 @@ export const IconSelector = ({ label, name, onChange, index }) => {
   // };
 
   const handleIconChange = (selectedOption) => {
-    console.log("to aqui: ", selectedOption);
     setSelectedIcon(selectedOption.value);
     onChange({
       target: {

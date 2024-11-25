@@ -46,16 +46,6 @@ export const PageEditor = () => {
     );
   };
 
-  // const handleEditSection = (name, updatedData) => {
-  //   setSections((prevSections) =>
-  //     prevSections.map((section) =>
-  //       section.name === name
-  //         ? { ...section, data: { ...section.data, ...updatedData } }
-  //         : section
-  //     )
-  //   );
-  // };
-
   const handleEditSection = (name, updatedField) => {
     setSections((prevSections) =>
       prevSections.map((section) =>
@@ -85,7 +75,6 @@ export const PageEditor = () => {
       case "Hero Lead":
         return (
           <HeroLeadSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -95,7 +84,6 @@ export const PageEditor = () => {
       case "Hero":
         return (
           <HeroSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -105,7 +93,6 @@ export const PageEditor = () => {
       case "Ícones":
         return (
           <IconsSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -115,7 +102,6 @@ export const PageEditor = () => {
       case "Vídeo":
         return (
           <VideoSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -125,7 +111,6 @@ export const PageEditor = () => {
       case "Mapa":
         return (
           <MapSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -135,7 +120,6 @@ export const PageEditor = () => {
       case "Footer":
         return (
           <FooterSection
-            previewDevice={previewDevice}
             data={data}
             onUpdate={(field, value) =>
               handleUpdateSectionData(section.name, field, value)
@@ -206,16 +190,13 @@ export const PageEditor = () => {
       </html>
     `;
 
-    // Inserir o conteúdo HTML na nova aba
     newTab.document.open();
     newTab.document.write(htmlContent);
     newTab.document.close();
 
-    // Aguardar o carregamento da nova aba
     newTab.onload = () => {
       const rootElement = newTab.document.getElementById("root");
 
-      // Renderizar o React na nova aba
       const NewTabContent = () => (
         <div>
           {sections.map((section, index) => (

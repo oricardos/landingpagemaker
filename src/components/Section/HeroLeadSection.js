@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 
@@ -33,12 +33,11 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   aria-hidden="true"
-                  // className="absolute inset-y-0 right-0 hidden h-full w-80 translate-x-1/2 transform lg:block"
                   className={getResponsiveClasses(
-                    "absolute inset-y-0 right-0 h-full w-80 translate-x-1/2 transform",
+                    "absolute inset-y-0 right-0 h-full w-80 translate-x-1/2 transform hidden",
                     {
-                      mobile: "hidden",
-                      desktop: "lg:block" },
+                      desktop: "lg:block",
+                    },
                     previewDevice
                   )}
                 >
@@ -56,13 +55,11 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                     previewDevice
                   )}
                 >
-                  {/* <div className=" "> */}
                   <div
                     className={getResponsiveClasses("mx-auto max-w-2xl", {
                       desktop: "lg:mx-0 lg:max-w-xl",
                     })}
                   >
-                    {/* <div className=" sm:flex "> */}
                     <div
                       className={getResponsiveClasses(
                         "hidden pointer-events-none",
@@ -83,7 +80,6 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                         color: data.titleColor,
                         fontFamily: data.titleFont,
                       }}
-                      // className=" sm:text-7xl"
                       className={getResponsiveClasses(
                         "text-pretty text-5xl font-semibold tracking-tight",
                         { mobile: "sm:text-7xl" },
@@ -97,7 +93,6 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                         color: data.subtitleColor,
                         fontFamily: data.subtitleFont,
                       }}
-                      // className="mt-8 text-pretty text-lg font-medium sm:text-xl/8"
                       className={getResponsiveClasses(
                         "mt-8 text-pretty text-lg font-medium",
                         { mobile: "sm:text-xl/8" },
@@ -109,11 +104,10 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
 
                     {/* Formulário de captação */}
                     <form className="space-y-3 mt-6">
-                      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> */}
                       <div
                         className={getResponsiveClasses(
-                          "grid grid-cols-1 md:grid-cols-2 gap-4",
-                          { mobile: "", desktop: "lg:gap-6" },
+                          "grid grid-cols-1  gap-4",
+                          { mobile: "", desktop: "lg:gap-6 md:grid-cols-2" },
                           previewDevice
                         )}
                       >

@@ -14,9 +14,8 @@ export const FooterSection = ({ data, onUpdate }) => {
         >
           <div
             className={getResponsiveClasses(
-              "max-w-7xl mx-auto flex items-start gap-4",
+              "max-w-7xl mx-auto flex flex-col items-start gap-4",
               {
-                mobile: "flex-col",
                 desktop: "md:gap-20 md:flex-row md:justify-start  md:space-y-0",
               },
               previewDevice

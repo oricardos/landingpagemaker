@@ -16,10 +16,10 @@ export const HeroSection = ({ data, onUpdate }) => {
           >
             <div
               className={getResponsiveClasses(
-                "mx-auto max-w-7xl items-center flex gap-4",
+                "mx-auto max-w-7xl items-center flex gap-4 flex-col",
                 {
                   mobile: "sm:flex-col",
-                  desktop: "lg:flex lg:justify-between lg:px-8 xl:justify-end ",
+                  desktop: "lg:flex-row lg:justify-between lg:px-8 xl:justify-end",
                 },
                 previewDevice
               )}
@@ -56,7 +56,7 @@ export const HeroSection = ({ data, onUpdate }) => {
 
               <div
                 className={getResponsiveClasses(
-                  "",
+                  "mx-4",
                   { mobile: "sm:mx-4", desktop: "lg:contents" },
                   previewDevice
                 )}

@@ -19,9 +19,8 @@ export const MapSection = ({ data, onUpdate }) => {
           className={`py-8 px-4`}
           ref={sectionRef}
         >
-          {/* <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:space-x-6"> */}
           <div
-            className={getResponsiveClasses("max-w-7xl mx-auto flex", {
+            className={getResponsiveClasses("max-w-7xl mx-auto flex flex-col", {
               mobile: "flex-col",
               desktop: "md:flex-row md:space-x-6",
             }, previewDevice)}

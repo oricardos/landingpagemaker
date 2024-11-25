@@ -29,22 +29,16 @@ export const IconsForm = ({ fields, onChange }) => {
   const handleChangeIcon = (e, index) => {
     const { name, value } = e.target;
 
-    // Atualiza o item no índice específico
+    // atualiza o item  específico
     const updatedIcons = icons.map((icon, idx) =>
       idx === index ? { ...icon, [name]: value } : icon
     );
 
-    console.log(value);
-
-    setIcons(updatedIcons); // Atualiza o estado
+    setIcons(updatedIcons); 
     onChange({
       target: { name: "icons", value: updatedIcons },
-    }); // Atualiza o formulário principal
+    });
   };
-
-  // useEffect(() => {
-  //   console.log(icons);
-  // }, [icons]);
 
   return (
     <div className="space-y-6 mb-4">
