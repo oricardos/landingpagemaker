@@ -3,7 +3,9 @@ import React from "react";
 export const MapSection = ({ data, onUpdate }) => {
   const isMobile = window.innerWidth < 768;
   const map = data.mapEmbedUrl;
-  const renderMap = isMobile ? map.replace(/width="[^"]*"/, 'width="100%"') : map
+  const renderMap = isMobile
+    ? map.replace(/width="[^"]*"/, 'width="100%"')
+    : map;
   return (
     <>
       {data.show && (
@@ -22,15 +24,14 @@ export const MapSection = ({ data, onUpdate }) => {
                   {data.titleText}
                 </h2>
               )}
-              <p
+              <div
+                className="ql-editor"
                 style={{
                   color: data.contentColor,
                   fontFamily: data.contentFont,
                 }}
-                className="text-lg"
-              >
-                {data.contentText}
-              </p>
+                dangerouslySetInnerHTML={{ __html: data.contentText }}
+              />
             </div>
 
             {/* Mapa do Google Maps */}
@@ -44,19 +45,19 @@ export const MapSection = ({ data, onUpdate }) => {
               >
                 {data.mapTitleText}
               </h5>
-              <p
+              <div
+                className="ql-editor"
                 style={{
-                  color: data.mapSubtitleColor,
-                  fontFamily: data.mapSubtitleFont,
+                  color: data.contentColor,
+                  fontFamily: data.contentFont,
                 }}
-              >
-                {data.mapSubtitleText}
-              </p>
+                dangerouslySetInnerHTML={{ __html: data.mapSubtitleText }}
+              />
               <div className="flex-1 overflow-hidden">
                 <div
                   className="w-full sm:w-auto"
                   dangerouslySetInnerHTML={{
-                    __html: renderMap
+                    __html: renderMap,
                   }}
                 ></div>
               </div>

@@ -14,7 +14,7 @@ export const HeroForm = ({ fields, onChange }) => {
   ];
   const titleConfig = ["titleText", "titleColor", "titleFont"];
   const subtitleConfig = ["subtitleText", "subtitleColor", "subtitleFont"];
-  const contentConfig = ["contentColor", "contentFont"];
+  const contentConfig = ["contentText", "contentColor", "contentFont"];
   const buttonConfig = [
     "buttonText",
     "buttonColor",
@@ -38,11 +38,6 @@ export const HeroForm = ({ fields, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Conteúdo">
-        <CustomContent
-          name="contentText"
-          value={fields.find((field) => field.name === "contentText").value}
-          onChange={onChange}
-        />
         {renderFields(fields, contentConfig, onChange)}
       </FormSectionWrapper>
 

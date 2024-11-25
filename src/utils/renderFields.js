@@ -2,10 +2,12 @@ import { Checkbox } from "../components/Forms/Checkbox";
 import { ColorInput } from "../components/Forms/ColorInput";
 import { Input } from "../components/Forms/Input";
 import FontSelector from "../components/Forms/FontSelector";
+import { CustomContent } from "../components/Forms/CustomContent";
 
 const fieldTypeComponents = {
   checkbox: Checkbox,
   color: ColorInput,
+  content: CustomContent,
   font: FontSelector,
   default: Input,
 };

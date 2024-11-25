@@ -73,8 +73,7 @@ export const PageEditor = () => {
   };
 
   const renderSection = (section) => {
-
-    // transforma os fields em um objeto 
+    // transforma os fields em um objeto
 
     const data = section?.fields.reduce((acc, field) => {
       acc[field.name] = field.value;
@@ -236,7 +235,7 @@ export const PageEditor = () => {
           <div className="fixed left-0 right-0 p-6 bg-white border-b z-[9999]">
             <header className="max-w-screen-2xl mx-auto flex justify-between items-center">
               <h1 className="text-2xl font-bold">Landing Page Maker</h1>
-              <div className="flex items-center space-x-2 bg-muted p-1 rounded-md">
+              <div className="flex items-center space-x-4 bg-muted p-1 rounded-md">
                 <button
                   size="icon"
                   aria-label="Visualizar página final"
@@ -245,6 +244,12 @@ export const PageEditor = () => {
                   <Eye className="h-4 w-4" />
                 </button>
                 <button
+                  title="Visualização em desktop"
+                  className={`${
+                    previewDevice === "desktop"
+                      ? "bg-gray-400 text-white"
+                      : "bg-white text-gray-900"
+                  } px-2 py-1 rounded`}
                   size="icon"
                   variant={previewDevice === "desktop" ? "secondary" : "ghost"}
                   onClick={() => setPreviewDevice("desktop")}
@@ -253,6 +258,12 @@ export const PageEditor = () => {
                   <Monitor className="h-4 w-4" />
                 </button>
                 <button
+                  title="Visualização em mobile"
+                  className={`${
+                    previewDevice === "mobile"
+                      ? "bg-gray-400 text-white"
+                      : "bg-white text-gray-900"
+                  } px-2 py-1 rounded`}
                   size="icon"
                   variant={previewDevice === "mobile" ? "secondary" : "ghost"}
                   onClick={() => setPreviewDevice("mobile")}
