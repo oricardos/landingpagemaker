@@ -62,7 +62,7 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                   >
                     <div
                       className={getResponsiveClasses(
-                        "hidden pointer-events-none",
+                        "pointer-events-none",
                         { mobile: "sm:flex" }
                       )}
                     >
