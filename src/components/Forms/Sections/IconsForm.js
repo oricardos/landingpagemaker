@@ -7,7 +7,7 @@ import { Input } from "../Input";
 
 export const IconsForm = ({ fields, onChange }) => {
   const sectionConfig = ["show","sectionBackgroundColor"];
-  const titleConfig = ["titleText", "titleColor"];
+  const titleConfig = ["titleText", "titleColor", "titleFont"];
   const subtitleConfig = ["subtitleText", "subtitleColor"];
   const iconsGeneralConfig = ["iconColor", "iconBackgroundColor"];
 
@@ -53,12 +53,7 @@ export const IconsForm = ({ fields, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Título">
-        {renderFields(fields, titleConfig, onChange)}{" "}
-        <FontSelector
-          label="Fonte do Título"
-          onChange={onChange}
-          name="titleFont"
-        />
+        {renderFields(fields, titleConfig, onChange)}
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Subtítulo">
