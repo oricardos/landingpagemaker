@@ -16,6 +16,7 @@ import { sectionConfig } from "../../utils/sectionConfig";
 import { VideoSection } from "../Section/VideoSection";
 import { MapSection } from "../Section/MapSection";
 import { PreviewDeviceProvider } from "../../contexts/PreviewDeviceContext";
+import Template from "../../assets/images/imobiliaria.png";
 
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
@@ -153,7 +154,7 @@ export const PageEditor = () => {
       });
     });
 
-    setUsedFonts(Array.from(fonts)); // Converte o Set para um Array e atualiza o estado
+    setUsedFonts(Array.from(fonts));
   }, [sections]);
 
   // TODO - remover essa parte daqui
@@ -166,6 +167,8 @@ export const PageEditor = () => {
       .map((font) => `family=${font}`)
       .join("&")}&display=swap" rel="stylesheet">
   `;
+
+    console.log(googleFontsLink);
 
     const htmlContent = `
       <!DOCTYPE html>
@@ -285,7 +288,23 @@ export const PageEditor = () => {
                     </Tab>
                   </TabList>
                   <TabPanels>
-                    <TabPanel value="Template">Templates</TabPanel>
+                    <TabPanel value="Template">
+                      <div className="my-2 flex flex-col">
+                        <img
+                          className="rounded"
+                          src={Template}
+                          alt="Template"
+                        />
+                        <div>
+                          <h2 className="text-lg font-semibold mt-2">
+                            Natus
+                          </h2>
+                          <p className="text-gray-500 text-sm">
+                            Template de landing page para imobiliárias, com um design moderno e elegante.
+                          </p>
+                        </div>
+                      </div>
+                    </TabPanel>
                     <TabPanel
                       value="Conteudo"
                       className="mt-6 space-y-6 transition-all"
