@@ -72,10 +72,22 @@ export const HeroSection = ({ data, onUpdate }) => {
                   previewDevice
                 )}
               >
-                <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                <h1
+                  style={{
+                    color: data.titleColor,
+                    fontFamily: data.titleFont,
+                  }}
+                  className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+                >
                   {data.titleText}
                 </h1>
-                <h2 className="mt-6 text-xl/8 text-gray-700">
+                <h2
+                  style={{
+                    color: data.subtitleColor,
+                    fontFamily: data.subtitleFont,
+                  }}
+                  className="mt-6 text-xl/8"
+                >
                   {data.subtitleText}
                 </h2>
                 <div className="mt-10 max-w-xl lg:max-w-none">
@@ -88,7 +100,7 @@ export const HeroSection = ({ data, onUpdate }) => {
                     dangerouslySetInnerHTML={{ __html: data.contentText }}
                   />
 
-<a
+                  <a
                     style={{
                       backgroundColor: data.buttonColor,
                       color: data.buttonTextColor,

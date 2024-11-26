@@ -17,6 +17,7 @@ import { VideoSection } from "../Section/VideoSection";
 import { MapSection } from "../Section/MapSection";
 import { PreviewDeviceProvider } from "../../contexts/PreviewDeviceContext";
 import Template from "../../assets/images/imobiliaria.png";
+import { CheckIcon } from "@heroicons/react/20/solid";
 
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
@@ -289,7 +290,10 @@ export const PageEditor = () => {
                   </TabList>
                   <TabPanels>
                     <TabPanel value="Template">
-                      <div className="my-2 flex flex-col">
+                      <div className="my-2 flex flex-col relative">
+                        <div className="absolute top-2 left-2">
+                          <CheckIcon className="h-4 w-4 bg-white rounded-full text-green-600" />
+                        </div>
                         <img
                           className="rounded"
                           src={Template}
