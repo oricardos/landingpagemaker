@@ -25,7 +25,8 @@ export const IconsSection = ({ data, onUpdate }) => {
   return (
     <>
       {data.show && (
-        <div
+        <section
+          id="icons"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className="py-24 sm:py-32"
         >
@@ -98,7 +99,7 @@ export const IconsSection = ({ data, onUpdate }) => {
               </dl>
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );

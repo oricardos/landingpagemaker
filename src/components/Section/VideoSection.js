@@ -6,6 +6,7 @@ export const VideoSection = ({ data, onUpdate }) => {
     <>
       {data.show && (
         <section
+          id="video"
           className={`py-8 flex justify-center`}
           style={{
             backgroundColor: data.sectionBackgroundColor,

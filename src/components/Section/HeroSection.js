@@ -7,7 +7,7 @@ export const HeroSection = ({ data, onUpdate }) => {
   return (
     <>
       {data.show && (
-        <section>
+        <section id="hero">
           <div
             style={{
               backgroundColor: data.sectionBackgroundColor,

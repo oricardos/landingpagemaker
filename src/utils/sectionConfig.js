@@ -1,6 +1,7 @@
 export const sectionConfig = [
   {
     name: "Hero Lead",
+    id: "hero-lead",
     fields: [
       {
         name: "show",
@@ -114,6 +115,7 @@ export const sectionConfig = [
   },  
   {
     name: "Hero",
+    id: "hero",
     fields: [
       {
         name: "show",
@@ -216,6 +218,7 @@ export const sectionConfig = [
   },  
   {
     name: "Ícones",
+    id: "icons",
     fields: [
       {
         name: "show",
@@ -331,6 +334,7 @@ export const sectionConfig = [
   },
   {
     name: "Vídeo",
+    id: "video",
     fields: [
       {
         name: "show",
@@ -360,6 +364,7 @@ export const sectionConfig = [
   },
   {
     name: "Mapa",
+    id: "map",
     fields: [
       {
         name: "show",
@@ -456,6 +461,7 @@ export const sectionConfig = [
   },  
   {
     name: "Footer",
+    id: "footer",
     fields: [
       {
         name: "show",

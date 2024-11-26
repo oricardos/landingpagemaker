@@ -12,7 +12,8 @@ const EditPanel = ({
     return (
       <div className="edit-panel">
         {allSections.map((section, index) => (
-          <div
+          <a
+            href={`#${section.id}`}
             className="w-full flex justify-between border-b p-2 cursor-pointer"
             onClick={() => setSelectedSection(section)}
           >
@@ -20,7 +21,7 @@ const EditPanel = ({
               {section.name}
             </div>
             <ChevronRightIcon className="w-6 h-6" />
-          </div>
+          </a>
         ))}
       </div>
     );

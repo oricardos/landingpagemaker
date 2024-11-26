@@ -9,6 +9,7 @@ export const FooterSection = ({ data, onUpdate }) => {
     <>
       {data.show && (
         <footer
+        id="footer"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
         >

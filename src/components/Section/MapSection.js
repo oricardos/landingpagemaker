@@ -15,6 +15,7 @@ export const MapSection = ({ data, onUpdate }) => {
     <>
       {data.show && (
         <section
+          id="map"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
           ref={sectionRef}

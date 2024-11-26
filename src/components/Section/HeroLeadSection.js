@@ -8,7 +8,8 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
   return (
     <>
       {data.show && (
-        <div
+        <section
+          id="hero-lead"
           style={{
             backgroundColor: data.backgroundColor,
           }}
@@ -61,10 +62,9 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
                     })}
                   >
                     <div
-                      className={getResponsiveClasses(
-                        "pointer-events-none",
-                        { mobile: "sm:flex" }
-                      )}
+                      className={getResponsiveClasses("pointer-events-none", {
+                        mobile: "sm:flex",
+                      })}
                     >
                       {/* logo */}
                       {data.logoSrc && (
@@ -168,7 +168,7 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
               />
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );
