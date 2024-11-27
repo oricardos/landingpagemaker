@@ -11,12 +11,13 @@
   scroll-behavior: smooth;
 }
 
+
 .ql-toolbar {
   z-index: 10; /* Garante que os menus estejam acima de outros elementos */
 }
 
 .ql-picker {
-  position: relative; /* Evita bugs de menu */
+  position: relative;
 }
 
 .ql-editor.content {
@@ -34,4 +35,14 @@
 
 .react-quill-container .ql-container {
   min-height: 150px;
+}
+
+.react-colorful {
+  height: 150px!important;
+  width: 100%!important;
+}
+
+.react-colorful__pointer {
+  width: 20px!important;
+  height: 20px!important;
 }

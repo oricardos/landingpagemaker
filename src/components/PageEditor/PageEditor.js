@@ -274,7 +274,6 @@ export const PageEditor = () => {
               <div className="space-y-6 flex-col items-start w-full max-w-80 mb-1">
                 <TabGroup
                   value={activeTab}
-                  onValueChange={setActiveTab}
                   className="w-full"
                 >
                   <TabList className="grid w-full grid-cols-3 rounded bg-gray-100 px-1 py-2">

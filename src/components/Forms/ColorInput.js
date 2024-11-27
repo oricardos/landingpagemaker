@@ -1,22 +1,28 @@
-import React from "react";
-import { ChromePicker } from "react-color";
+import React, { useState } from "react";
+import { HexColorPicker, HexColorInput } from "react-colorful";
+
 export const ColorInput = ({ label, name, value, onChange }) => {
-  const [updatedColor, setUpdatedColor] = React.useState(value);
+  const [updatedColor, setUpdatedColor] = useState(value);
+
   const handleChange = (color) => {
-    setUpdatedColor(color.hex);
-    onChange({ target: { name, value: color.hex } });
+    setUpdatedColor(color);
+    onChange({ target: { name, value: color } });
   };
 
   return (
-    <label className="flex flex-col">
-      {label}
-      <ChromePicker
-        label={label}
-        triangle="hide"
-        width="100%"
+    <>
+      <label className="flex">{label}</label>
+      <HexColorPicker
         color={updatedColor}
         onChange={(color) => handleChange(color)}
+        className="w-full"
       />
-    </label>
+      <HexColorInput
+      prefixed
+        color={updatedColor}
+        onChange={(color) => handleChange(color)}
+        className="border border-gray-300 p-1 text-xs w-full"
+      />
+    </>
   );
 };
