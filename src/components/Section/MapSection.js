@@ -1,20 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo } from "react";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
-import { scrollToSection } from "../../utils/scrollToSection";
+import { useScrollToSection } from "../../hooks/useScrollToSection";
 
-export const MapSection = React.memo(({ data, onUpdate }) => {
+export const MapSection = memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
-  const sectionRef = useRef(null);
+  const sectionRef = useScrollToSection(data.show);
   const isMobile = window.innerWidth < 768;
   const map = data.mapEmbedUrl;
   const renderMap = isMobile
     ? map.replace(/width="[^"]*"/, 'width="100%"')
     : map;
-
-  useEffect(() => {
-    scrollToSection(data.show, sectionRef);
-  }, [data.show]);
 
   return (
     <>

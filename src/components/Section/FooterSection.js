@@ -1,16 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo } from "react";
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
-import { scrollToSection } from "../../utils/scrollToSection";
+import { useScrollToSection } from "../../hooks/useScrollToSection";
 
-export const FooterSection = React.memo(({ data, onUpdate }) => {
+export const FooterSection = memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    scrollToSection(data.show, sectionRef);
-  }, [data.show]);
+  const sectionRef = useScrollToSection(data.show);
 
   return (
     <>

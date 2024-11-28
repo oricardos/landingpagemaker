@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo } from "react";
 import * as HeroiconsSolid from "@heroicons/react/20/solid";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
-import { scrollToSection } from "../../utils/scrollToSection";
+import { useScrollToSection } from "../../hooks/useScrollToSection";
 
 const RenderIcon = ({ icon, iconColor, index }) => {
   // busca o icone
@@ -21,13 +21,9 @@ const RenderIcon = ({ icon, iconColor, index }) => {
   );
 };
 
-export const IconsSection = React.memo(({ data, onUpdate }) => {
+export const IconsSection = memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    scrollToSection(data.show, sectionRef);
-  }, [data.show]);
+  const sectionRef = useScrollToSection(data.show);
 
   return (
     <>
