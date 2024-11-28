@@ -10,12 +10,12 @@ export const ColorInput = ({ label, name, value, onChange }) => {
   };
 
   return (
-    <>
+    <div>
       <label className="flex">{label}</label>
       <HexColorPicker
         color={updatedColor}
         onChange={(color) => handleChange(color)}
-        className="w-full"
+        className="w-full mb-2"
       />
       <HexColorInput
       prefixed
@@ -23,6 +23,6 @@ export const ColorInput = ({ label, name, value, onChange }) => {
         onChange={(color) => handleChange(color)}
         className="border border-gray-300 p-1 text-xs w-full"
       />
-    </>
+    </div>
   );
 };

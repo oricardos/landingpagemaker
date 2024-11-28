@@ -112,7 +112,7 @@ export const sectionConfig = [
         value: "#",
       },
     ],
-  },  
+  },
   {
     name: "Hero",
     id: "hero",
@@ -215,7 +215,7 @@ export const sectionConfig = [
         value: null,
       },
     ],
-  },  
+  },
   {
     name: "Ícones",
     id: "icons",
@@ -346,7 +346,8 @@ export const sectionConfig = [
         name: "videoUrl",
         type: "text",
         label: "URL do Vídeo",
-        value: "https://www.youtube.com/watch?v=AkUWHR_OvrY&ab_channel=SentinelieSobral",
+        value:
+          "https://www.youtube.com/watch?v=u31qwQUeGuM&ab_channel=JoomlaTemplate",
       },
       {
         name: "sectionBackgroundColor",
@@ -382,7 +383,7 @@ export const sectionConfig = [
         name: "titleText",
         type: "text",
         label: "Texto do Título",
-        value: "Map Section",
+        value: "Título",
       },
       {
         name: "titleFont",
@@ -400,7 +401,8 @@ export const sectionConfig = [
         name: "contentText",
         type: "content",
         label: "Texto do Conteúdo",
-        value: "This is a map section",
+        value:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae enim eget eros gravida tempor. Sed vitae vulputate odio. Quisque malesuada libero in placerat suscipit. Morbi semper mi libero, a ultricies enim pellentesque et. Sed et pulvinar metus. Donec in dignissim eros. Fusce dignissim tellus vitae sapien viverra, eu porttitor tortor dignissim.",
       },
       {
         name: "contentFont",
@@ -455,10 +457,10 @@ export const sectionConfig = [
         type: "text",
         label: "Iframe do Mapa",
         value:
-          '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59978.30878222007!2d-44.029435299999996!3d-20.023438199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6bfe0599c6d59%3A0x4f5d614ebc356e9d!2sPista%20de%20skate%20-%20Vila%20ideal!5e0!3m2!1spt-BR!2sbr!4v1730815066650!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+          '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120024.2159309127!2d-44.01658220536745!3d-19.934652968996662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa690cacacf2c33%3A0x5b35795e3ad23997!2sBelo%20Horizonte%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1732815896584!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
       },
     ],
-  },  
+  },
   {
     name: "Footer",
     id: "footer",
@@ -481,7 +483,7 @@ export const sectionConfig = [
         label: "Cor de Fundo da Seção",
         value: "#fff",
       },
-      
+
       {
         name: "email",
         type: "text",
@@ -507,5 +509,5 @@ export const sectionConfig = [
         value: "#121212",
       },
     ],
-  }  
+  },
 ];
