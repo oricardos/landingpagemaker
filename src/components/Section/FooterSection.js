@@ -4,13 +4,13 @@ import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { scrollToSection } from "../../utils/scrollToSection";
 
-export const FooterSection = ({ data, onUpdate }) => {
+export const FooterSection = React.memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
   const sectionRef = useRef(null);
 
-  // useEffect(() => {
-  //   scrollToSection(data.show, sectionRef);
-  // }, [data]);
+  useEffect(() => {
+    scrollToSection(data.show, sectionRef);
+  }, [data.show]);
 
   return (
     <>
@@ -84,4 +84,4 @@ export const FooterSection = ({ data, onUpdate }) => {
       )}
     </>
   );
-};
+});

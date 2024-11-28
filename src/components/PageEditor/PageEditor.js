@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Template from "../../assets/images/imobiliaria.png";
 import EditPanel from "../EditPanel/EditPanel";

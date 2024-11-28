@@ -21,13 +21,13 @@ const RenderIcon = ({ icon, iconColor, index }) => {
   );
 };
 
-export const IconsSection = ({ data, onUpdate }) => {
+export const IconsSection = React.memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
   const sectionRef = useRef(null);
 
-  // useEffect(() => {
-  //   scrollToSection(data.show, sectionRef);
-  // }, [data]);
+  useEffect(() => {
+    scrollToSection(data.show, sectionRef);
+  }, [data.show]);
 
   return (
     <>
@@ -111,4 +111,4 @@ export const IconsSection = ({ data, onUpdate }) => {
       )}
     </>
   );
-};
+});

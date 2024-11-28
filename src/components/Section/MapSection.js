@@ -3,7 +3,7 @@ import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { scrollToSection } from "../../utils/scrollToSection";
 
-export const MapSection = ({ data, onUpdate }) => {
+export const MapSection = React.memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
   const sectionRef = useRef(null);
   const isMobile = window.innerWidth < 768;
@@ -12,9 +12,9 @@ export const MapSection = ({ data, onUpdate }) => {
     ? map.replace(/width="[^"]*"/, 'width="100%"')
     : map;
 
-  // useEffect(() => {
-  //   scrollToSection(data.show, sectionRef);
-  // }, [data]);
+  useEffect(() => {
+    scrollToSection(data.show, sectionRef);
+  }, [data.show]);
 
   return (
     <>
@@ -88,4 +88,4 @@ export const MapSection = ({ data, onUpdate }) => {
       )}
     </>
   );
-};
+});
