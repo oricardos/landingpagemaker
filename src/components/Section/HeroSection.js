@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 export const HeroSection = ({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
+  const sectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
+
   return (
     <>
       {data.show && (
         <section
+          ref={sectionRef}
           id="hero"
           className="relative"
           style={{

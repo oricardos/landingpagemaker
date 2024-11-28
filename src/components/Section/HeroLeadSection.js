@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
+import { scrollToSection } from "../../utils/scrollToSection";
 
-export const HeroLeadSection = ({ data, onUpdate }) => {
+export const HeroLeadSection = React.memo(({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
+  const sectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
 
   return (
     <>
       {data.show && (
         <section
+          ref={sectionRef}
           id="hero-lead"
           style={{
             backgroundColor: data.backgroundColor,
@@ -172,4 +179,4 @@ export const HeroLeadSection = ({ data, onUpdate }) => {
       )}
     </>
   );
-};
+});

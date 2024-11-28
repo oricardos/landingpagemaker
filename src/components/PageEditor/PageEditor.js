@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import ReactDOMServer from "react-dom/server";
+import Template from "../../assets/images/imobiliaria.png";
+import EditPanel from "../EditPanel/EditPanel";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Monitor, Smartphone, Eye } from "lucide-react";
 import { Input } from "../Forms/Input";
 import { TextArea } from "../Forms/TextArea";
-import EditPanel from "../EditPanel/EditPanel";
 import { HeroLeadSection } from "../Section/HeroLeadSection";
 import { HeroSection } from "../Section/HeroSection";
 import { IconsSection } from "../Section/IconsSection";
@@ -16,8 +16,8 @@ import { sectionConfig } from "../../utils/sectionConfig";
 import { VideoSection } from "../Section/VideoSection";
 import { MapSection } from "../Section/MapSection";
 import { PreviewDeviceProvider } from "../../contexts/PreviewDeviceContext";
-import Template from "../../assets/images/imobiliaria.png";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import SectionRenderer from "../SectionRenderer/SectionRenderer";
 
 export const PageEditor = () => {
   const [activeTab, setActiveTab] = useState("template");
@@ -67,7 +67,6 @@ export const PageEditor = () => {
 
   const renderSection = (section) => {
     // transforma os fields em um objeto
-
     const data = section?.fields.reduce((acc, field) => {
       acc[field.name] = field.value;
       return acc;
@@ -204,7 +203,10 @@ export const PageEditor = () => {
       const NewTabContent = () => (
         <div>
           {sections.map((section, index) => (
-            <div key={index}>{renderSection(section)}</div>
+            // <div key={index}>{renderSection(section)}</div>
+            <div key={index}>
+              <SectionRenderer section={section} />
+            </div>
           ))}
         </div>
       );
@@ -272,10 +274,7 @@ export const PageEditor = () => {
           <div className="w-full flex flex-col lg:flex-row gap-6 pt-24">
             <div className="fixed bottom-0 top-24">
               <div className="space-y-6 flex-col items-start w-full max-w-80 mb-1">
-                <TabGroup
-                  value={activeTab}
-                  className="w-full"
-                >
+                <TabGroup value={activeTab} className="w-full">
                   <TabList className="grid w-full grid-cols-3 rounded bg-gray-100 px-1 py-2">
                     <Tab className={tabClass} value="Template">
                       Template
@@ -299,11 +298,10 @@ export const PageEditor = () => {
                           alt="Template"
                         />
                         <div>
-                          <h2 className="text-lg font-semibold mt-2">
-                            Natus
-                          </h2>
+                          <h2 className="text-lg font-semibold mt-2">Natus</h2>
                           <p className="text-gray-500 text-sm">
-                            Template de landing page para imobiliárias, com um design moderno e elegante.
+                            Template de landing page para imobiliárias, com um
+                            design moderno e elegante.
                           </p>
                         </div>
                       </div>

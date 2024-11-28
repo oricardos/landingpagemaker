@@ -13,13 +13,12 @@ const EditPanel = ({
       <div className="edit-panel">
         {allSections.map((section, index) => (
           <a
+            key={index}
             href={`#${section.id}`}
             className="w-full flex justify-between border-b p-2 cursor-pointer"
             onClick={() => setSelectedSection(section)}
           >
-            <div key={index} className="">
-              {section.name}
-            </div>
+            <div className="">{section.name}</div>
             <ChevronRightIcon className="w-6 h-6" />
           </a>
         ))}

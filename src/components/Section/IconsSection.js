@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as HeroiconsSolid from "@heroicons/react/20/solid";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const RenderIcon = ({ icon, iconColor, index }) => {
   // busca o icone
@@ -22,10 +23,17 @@ const RenderIcon = ({ icon, iconColor, index }) => {
 
 export const IconsSection = ({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
+  const sectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
+
   return (
     <>
       {data.show && (
         <section
+          ref={sectionRef}
           id="icons"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className="py-24 sm:py-32"

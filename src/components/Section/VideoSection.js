@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactPlayer from "react-player/youtube";
+import { scrollToSection } from "../../utils/scrollToSection";
 
-export const VideoSection = ({ data, onUpdate }) => {
+export const VideoSection = React.memo(({ data, onUpdate }) => {
+  const sectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
+
   return (
     <>
       {data.show && (
         <section
+          ref={sectionRef}
           id="video"
           className={`py-8 flex justify-center`}
           style={{
@@ -30,4 +38,4 @@ export const VideoSection = ({ data, onUpdate }) => {
       )}
     </>
   );
-};
+});

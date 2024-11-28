@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 export const FooterSection = ({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
+  const sectionRef = useRef(null);
+
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
+
   return (
     <>
       {data.show && (
         <footer
-        id="footer"
+          ref={sectionRef}
+          id="footer"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
         >

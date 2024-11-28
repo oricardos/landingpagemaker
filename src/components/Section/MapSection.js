@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { usePreviewDevice } from "../../contexts/PreviewDeviceContext";
 import { getResponsiveClasses } from "../../utils/getResponsiveClasses";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 export const MapSection = ({ data, onUpdate }) => {
   const previewDevice = usePreviewDevice();
@@ -11,20 +12,28 @@ export const MapSection = ({ data, onUpdate }) => {
     ? map.replace(/width="[^"]*"/, 'width="100%"')
     : map;
 
+  // useEffect(() => {
+  //   scrollToSection(data.show, sectionRef);
+  // }, [data]);
+
   return (
     <>
       {data.show && (
         <section
+          ref={sectionRef}
           id="map"
           style={{ backgroundColor: data.sectionBackgroundColor }}
           className={`py-8 px-4`}
-          ref={sectionRef}
         >
           <div
-            className={getResponsiveClasses("max-w-7xl mx-auto flex flex-col", {
-              mobile: "flex-col",
-              desktop: "md:flex-row md:space-x-6",
-            }, previewDevice)}
+            className={getResponsiveClasses(
+              "max-w-7xl mx-auto flex flex-col",
+              {
+                mobile: "flex-col",
+                desktop: "md:flex-row md:space-x-6",
+              },
+              previewDevice
+            )}
           >
             {/* Bloco de Texto */}
             <div className={`flex-1 mb-6 md:mb-0`}>
