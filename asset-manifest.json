@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/landingpagemaker/static/css/main.0ce30148.css",
-    "main.js": "/landingpagemaker/static/js/main.31f1da13.js",
+    "main.css": "/landingpagemaker/static/css/main.830f0064.css",
+    "main.js": "/landingpagemaker/static/js/main.7a24df49.js",
     "reactPlayerPreview.js": "/landingpagemaker/static/js/reactPlayerPreview.c52d261e.chunk.js",
     "static/media/imobiliaria.png": "/landingpagemaker/static/media/imobiliaria.beffb0062ca2f8802b2d.png",
     "index.html": "/landingpagemaker/index.html",
-    "main.0ce30148.css.map": "/landingpagemaker/static/css/main.0ce30148.css.map",
-    "main.31f1da13.js.map": "/landingpagemaker/static/js/main.31f1da13.js.map",
+    "main.830f0064.css.map": "/landingpagemaker/static/css/main.830f0064.css.map",
+    "main.7a24df49.js.map": "/landingpagemaker/static/js/main.7a24df49.js.map",
     "reactPlayerPreview.c52d261e.chunk.js.map": "/landingpagemaker/static/js/reactPlayerPreview.c52d261e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ce30148.css",
-    "static/js/main.31f1da13.js"
+    "static/css/main.830f0064.css",
+    "static/js/main.7a24df49.js"
   ]
 }
