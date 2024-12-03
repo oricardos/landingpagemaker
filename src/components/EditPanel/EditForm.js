@@ -41,7 +41,7 @@ const EditForm = ({ sectionData, onChange }) => {
   };
 
   return (
-    <form className="space-y-4 pb-5 overflow-y-auto h-[fill-available] px-2 pt-4 bg-[#E6E9EC]">
+    <form className="space-y-4 pb-5 overflow-y-scroll h-full px-2 pt-4 bg-[#E6E9EC]">
       {renderForm(sectionData)}
     </form>
   );

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import FontSelector from "../FontSelector";
+import React, { useState } from "react";
 import { renderFields } from "../../../utils/renderFields";
 import { IconSelector } from "../IconSelector";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { Input } from "../Input";
+import { heroIcons } from "../../../utils/icons";
 
 export const IconsForm = ({ fields, onChange }) => {
   const sectionConfig = ["show","sectionBackgroundColor"];
@@ -14,9 +14,11 @@ export const IconsForm = ({ fields, onChange }) => {
   const iconsTitle = ["iconTextFont", "iconTitleColor"];
   const iconsSubTitle = ["iconSubtitleColor"];
 
+  const initialIcon = heroIcons.filter((option) => option.value === "staricon");
+
   // const iconsConfig = ["iconTitle", "iconSubtitle"];
   const iconsConfig = [
-    { icon: "", iconTitle: "", iconSubtitle: "" }, // Config inicial para cada item
+    { icon: initialIcon, iconTitle: "", iconSubtitle: "" }, // Config inicial para cada item
   ];
 
   const [icons, setIcons] = useState(iconsConfig);
@@ -27,6 +29,8 @@ export const IconsForm = ({ fields, onChange }) => {
   };
 
   const handleChangeIcon = (e, index) => {
+    console.log(e)
+
     const { name, value } = e.target;
 
     // atualiza o item  específico
@@ -61,62 +65,37 @@ export const IconsForm = ({ fields, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Ícones">
-        {/* {icons.map((iconForm, index) => {
+        {icons.map((iconForm, index) => {
+          console.log(iconForm)
           return (
             <div key={index}>
               <div>
+                {/* Atualiza o ícone */}
                 <IconSelector
                   label="Ícone"
                   name="icon"
+                  value={iconForm.icon}
                   onChange={(e) => handleChangeIcon(e, index)}
                 />
-                {renderFormSections(form, iconForm, (e) =>
-                  handleChangeIcon(e, index)
-                )}
+  
+                {/* Atualiza os outros campos (formulário dinâmico) */}
+                {Object.keys(iconForm).map((field) => {
+                  if (field === "icon") return null;
+                  return (
+                    <div key={field}>
+                      <Input label={field === "iconTitle" ? "Título" : "Subtítulo"} name={field} value={iconForm[field] || ""} onChange={(e) => handleChangeIcon(e, index)} />
+                    </div>
+                  );
+                })}
               </div>
-
+  
+              {/* Separador entre formulários */}
               {icons.length > 1 && (
                 <hr className="my-8 border-t border-gray-200" />
               )}
             </div>
-          );
-        })} */}
-
-        {icons.map((iconForm, index) => (
-          <div key={index}>
-            <div>
-              {/* Atualiza o ícone */}
-              <IconSelector
-                label="Ícone"
-                name="icon"
-                value={iconForm.icon}
-                onChange={(e) => handleChangeIcon(e, index)}
-              />
-
-              {/* Atualiza os outros campos (formulário dinâmico) */}
-              {Object.keys(iconForm).map((field) => {
-                if (field === "icon") return null;
-                return (
-                  <div key={field}>
-                    <Input label={field} name={field} value={iconForm[field] || ""} onChange={(e) => handleChangeIcon(e, index)} />
-                    {/* <label>{field}</label>
-                    <input
-                      type={field === "icon" ? "hidden" : "text"}
-                      name={field}
-                      value={iconForm[field] || ""}
-                      onChange={(e) => handleChangeIcon(e, index)}
-                    /> */}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Separador entre formulários */}
-            {icons.length > 1 && (
-              <hr className="my-8 border-t border-gray-200" />
-            )}
-          </div>
-        ))}
+          )
+        })}
       </FormSectionWrapper>
 
       <button

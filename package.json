@@ -1,7 +1,7 @@
 {
   "name": "page-builder",
   "homepage": "https://oricardos.github.io/landingpagemaker/",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
