@@ -62,6 +62,7 @@ export const IconsSection = memo(({ data, onUpdate }) => {
                 )}
               >
                 {data.icons.map((feature, index) => {
+                  // console.log("feature", feature);
                   return (
                     <div key={index} className="relative pl-16">
                       <dt

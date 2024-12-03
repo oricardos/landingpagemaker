@@ -3,9 +3,10 @@ import Select, { components } from "react-select";
 import { heroIcons } from "../../utils/icons";
 
 export const IconSelector = ({ label, name, onChange, index, value }) => {
-  const [selectedIcon, setSelectedIcon] = useState(value);
+  const initialIcon = heroIcons.filter((option) => option.label === value);
+  const [selectedIcon, setSelectedIcon] = useState(initialIcon);
 
-  console.log("value", value);
+  // console.log("value", value);
 
   const SingleValue = ({ children, ...props }) => {
     const icon = heroIcons.filter(

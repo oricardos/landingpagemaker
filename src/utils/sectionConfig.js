@@ -1,3 +1,5 @@
+import { heroIcons } from "./icons";
+
 export const sectionConfig = [
   {
     name: "Hero Lead",
@@ -304,9 +306,9 @@ export const sectionConfig = [
         label: "Lista de Ícones",
         value: [
           {
-            icon: "",
-            iconTitle: "Icon Title",
-            iconSubtitle: "Icon Subtitle",
+            icon: heroIcons.filter((option) => option.value === "staricon")[0].label,
+            iconTitle: "Título",
+            iconSubtitle: "Subtítulo",
           },
         ],
         fields: [
@@ -314,19 +316,18 @@ export const sectionConfig = [
             name: "icon",
             type: "text",
             label: "Ícone",
-            value: "",
+            value: heroIcons.filter((option) => option.value === "staricon"),
           },
           {
             name: "iconTitle",
             type: "text",
-            label: "Título do Ícone",
-            value: "Icon Title",
+            label: "Título",
           },
           {
             name: "iconSubtitle",
             type: "text",
             label: "Subtítulo do Ícone",
-            value: "Icon Subtitle",
+            value: "Subtítulo",
           },
         ],
       },

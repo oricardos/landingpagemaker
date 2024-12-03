@@ -17,9 +17,7 @@ export const IconsForm = ({ fields, onChange }) => {
   const initialIcon = heroIcons.filter((option) => option.value === "staricon");
 
   // const iconsConfig = ["iconTitle", "iconSubtitle"];
-  const iconsConfig = [
-    { icon: initialIcon, iconTitle: "", iconSubtitle: "" }, // Config inicial para cada item
-  ];
+  const iconsConfig = fields.filter((field) => field.name === "icons")[0].value;
 
   const [icons, setIcons] = useState(iconsConfig);
 
@@ -29,11 +27,8 @@ export const IconsForm = ({ fields, onChange }) => {
   };
 
   const handleChangeIcon = (e, index) => {
-    console.log(e)
-
     const { name, value } = e.target;
 
-    // atualiza o item  específico
     const updatedIcons = icons.map((icon, idx) =>
       idx === index ? { ...icon, [name]: value } : icon
     );
@@ -66,7 +61,7 @@ export const IconsForm = ({ fields, onChange }) => {
 
       <FormSectionWrapper title="Ícones">
         {icons.map((iconForm, index) => {
-          console.log(iconForm)
+          console.log('iconForm', iconForm)
           return (
             <div key={index}>
               <div>
