@@ -6,8 +6,6 @@ export const IconSelector = ({ label, name, onChange, index, value }) => {
   const initialIcon = heroIcons.filter((option) => option.label === value);
   const [selectedIcon, setSelectedIcon] = useState(initialIcon);
 
-  // console.log("value", value);
-
   const SingleValue = ({ children, ...props }) => {
     const icon = heroIcons.filter(
       (option) => option.value === props.data.value

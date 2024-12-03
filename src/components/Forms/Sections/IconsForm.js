@@ -14,9 +14,6 @@ export const IconsForm = ({ fields, onChange }) => {
   const iconsTitle = ["iconTextFont", "iconTitleColor"];
   const iconsSubTitle = ["iconSubtitleColor"];
 
-  const initialIcon = heroIcons.filter((option) => option.value === "staricon");
-
-  // const iconsConfig = ["iconTitle", "iconSubtitle"];
   const iconsConfig = fields.filter((field) => field.name === "icons")[0].value;
 
   const [icons, setIcons] = useState(iconsConfig);
@@ -24,6 +21,9 @@ export const IconsForm = ({ fields, onChange }) => {
   const addIcon = (e) => {
     e.preventDefault();
     setIcons([...icons, ...iconsConfig]);
+    onChange({
+      target: { name: "icons", value: [...icons, ...iconsConfig] },
+    });
   };
 
   const handleChangeIcon = (e, index) => {
@@ -61,10 +61,9 @@ export const IconsForm = ({ fields, onChange }) => {
 
       <FormSectionWrapper title="Ícones">
         {icons.map((iconForm, index) => {
-          console.log('iconForm', iconForm)
           return (
             <div key={index}>
-              <div>
+              <div className="space-y-4">
                 {/* Atualiza o ícone */}
                 <IconSelector
                   label="Ícone"
