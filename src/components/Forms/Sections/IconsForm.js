@@ -3,10 +3,9 @@ import { renderFields } from "../../../utils/renderFields";
 import { IconSelector } from "../IconSelector";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { Input } from "../Input";
-import { heroIcons } from "../../../utils/icons";
 
 export const IconsForm = ({ fields, onChange }) => {
-  const sectionConfig = ["show","sectionBackgroundColor"];
+  const sectionConfig = ["show", "sectionBackgroundColor"];
   const titleConfig = ["titleText", "titleColor", "titleFont"];
   const subtitleConfig = ["subtitleText", "subtitleColor", "subtitleFont"];
   const iconsGeneralConfig = ["iconColor", "iconBackgroundColor"];
@@ -33,7 +32,7 @@ export const IconsForm = ({ fields, onChange }) => {
       idx === index ? { ...icon, [name]: value } : icon
     );
 
-    setIcons(updatedIcons); 
+    setIcons(updatedIcons);
     onChange({
       target: { name: "icons", value: updatedIcons },
     });
@@ -71,30 +70,37 @@ export const IconsForm = ({ fields, onChange }) => {
                   value={iconForm.icon}
                   onChange={(e) => handleChangeIcon(e, index)}
                 />
-  
+
                 {/* Atualiza os outros campos (formulário dinâmico) */}
                 {Object.keys(iconForm).map((field) => {
                   if (field === "icon") return null;
                   return (
                     <div key={field}>
-                      <Input label={field === "iconTitle" ? "Título" : "Subtítulo"} name={field} value={iconForm[field] || ""} onChange={(e) => handleChangeIcon(e, index)} />
+                      <Input
+                        label={field === "iconTitle" ? "Título" : "Subtítulo"}
+                        name={field}
+                        value={iconForm[field] || ""}
+                        onChange={(e) => handleChangeIcon(e, index)}
+                      />
                     </div>
                   );
                 })}
               </div>
-  
+
               {/* Separador entre formulários */}
               {icons.length > 1 && (
                 <hr className="my-8 border-t border-gray-200" />
               )}
             </div>
-          )
+          );
         })}
       </FormSectionWrapper>
 
       <button
         onClick={(e) => addIcon(e)}
-        className="mt-2 bg-slate-900 px-4 py-2 text-white rounded flex justify-self-end"
+        className={`mt-2 bg-slate-900 px-4 py-2 text-white rounded justify-self-end ${
+          icons.length >= 6 ? "hidden" : "flex"
+        }`}
       >
         Adicionar bloco
       </button>
