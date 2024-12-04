@@ -47,17 +47,7 @@ export const IconSelector = ({ label, name, onChange, index, value }) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
-        <label className="block text-sm font-medium mb-1">{label}</label>
-        <a
-          href="https://heroicons.com/solid"
-          target="_blank"
-          rel="noreferrer noopener"
-          className="text-sm font-medium text-blue-600 mb-1"
-        >
-          Ver Biblioteca de ícones
-        </a>
-      </div>
+      <label className="block text-sm font-medium mb-1">{label}</label>
       <Select
         defaultValue={selectedIcon}
         options={heroIcons}

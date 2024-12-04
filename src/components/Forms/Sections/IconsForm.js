@@ -3,6 +3,7 @@ import { renderFields } from "../../../utils/renderFields";
 import { IconSelector } from "../IconSelector";
 import { FormSectionWrapper } from "../FormSectionWrapper";
 import { Input } from "../Input";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export const IconsForm = ({ fields, onChange }) => {
   const sectionConfig = ["show", "sectionBackgroundColor"];
@@ -22,6 +23,14 @@ export const IconsForm = ({ fields, onChange }) => {
     setIcons([...icons, ...iconsConfig]);
     onChange({
       target: { name: "icons", value: [...icons, ...iconsConfig] },
+    });
+  };
+
+  const removeIcon = (index) => {
+    const updatedIcons = icons.filter((icon, idx) => idx !== index);
+    setIcons(updatedIcons);
+    onChange({
+      target: { name: "icons", value: updatedIcons },
     });
   };
 
@@ -59,9 +68,17 @@ export const IconsForm = ({ fields, onChange }) => {
       </FormSectionWrapper>
 
       <FormSectionWrapper title="Ícones">
+        <a
+          href="https://heroicons.com/solid"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-sm font-medium text-blue-600 mb-1"
+        >
+          Ver Biblioteca de ícones
+        </a>
         {icons.map((iconForm, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="relative">
               <div className="space-y-4">
                 {/* Atualiza o ícone */}
                 <IconSelector
@@ -86,6 +103,17 @@ export const IconsForm = ({ fields, onChange }) => {
                   );
                 })}
               </div>
+
+              {/* Botão para remover ícone */}
+              {icons.length > 1 && (
+                <div
+                title="Remover ícone"
+                  onClick={() => removeIcon(index)}
+                  className="bg-red-300 text-white rounded absolute top-0 right-0 cursor-pointer"
+                >
+                  <XMarkIcon className="h-4 w-4 text-red-500" />
+                </div>
+              )}
 
               {/* Separador entre formulários */}
               {icons.length > 1 && (
